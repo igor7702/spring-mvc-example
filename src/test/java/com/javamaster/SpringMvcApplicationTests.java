@@ -10,4 +10,8 @@ class SpringMvcApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void GetRaceFromDB(){
+	}
+
 }
