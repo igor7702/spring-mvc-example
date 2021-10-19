@@ -38,6 +38,8 @@ public class GetRaceFromDB {
                 int age = rs.getInt("age");
                 String address = rs.getString("address");
                 float salary = rs.getFloat("salary");
+                String raceWeekOut = rs.getString("raceWeek");
+                String raceYearOut = rs.getString("raceYear");
                 System.out.println("ID = " + id);
                 System.out.println("NAME = " + name);
                 System.out.println("AGE = " + age);
