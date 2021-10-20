@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AddRaceInfoController {
 
-    @GetMapping("/race")
+    @GetMapping("/addRaceInfo")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
                        Model model, String dataOfTheRace, String countryRace) {
 
@@ -25,6 +25,6 @@ public class AddRaceInfoController {
         model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
         model.addAttribute("dataOfTheRace", dataOfTheRace);
 
-        return "race_page";
+        return "answerAddRaceInfo_page";
     }
 }
