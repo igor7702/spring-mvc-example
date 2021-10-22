@@ -14,4 +14,8 @@ class SpringMvcApplicationTests {
 	void GetRaceFromDB(){
 	}
 
+	@Test
+	void SetRaceToDB(){
+	}
+
 }
