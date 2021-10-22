@@ -20,9 +20,9 @@ public class SetRaceToDB {
         number = 100;
         Connection c = null;
         Statement stmt = null;
-        int idRace;
+        int idRace = 1;
         boolean answerAbouSet;
-        String qwRaceWeek, qwRaceYear,qwRaceCountry, qwraceCity;
+        String qwRaceWeek="", qwRaceYear="",qwRaceCountry="", qwraceCity="";
         show();
 
         try {
@@ -42,8 +42,17 @@ public class SetRaceToDB {
                 System.err.println("Wrong format for the idRace!");
             }
 
-            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "
-                    + "VALUES (7, 'Paul', 32, 'California', 20000.00 );";
+            qwRaceWeek = ", '"+raceWeek+"'";
+            qwRaceYear = ", '"+raceYear+"'";
+            qwRaceCountry = ", '"+raceCountry+"'";
+            qwraceCity = ", '"+raceCity+"'";
+
+            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY," +
+                    "RACEWEEK,RACEYEAR,RACECOUNTRY,RACECITY) "
+                    + "VALUES (" + idRace + ", 'Paul', 32, 'California', 20000.00" +
+                    qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity +
+                    ");";
+            System.out.println(sql);
             stmt.executeUpdate(sql);
 
             stmt.close();
