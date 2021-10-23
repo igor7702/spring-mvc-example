@@ -18,10 +18,19 @@
 </form>
 
 CRUD jdbc operations:
+<p> </p>
 
 <form action="/addRace" method="get">
     <input type="submit" value="Add new race information!">
 </form>
+
+<form action="/deleteRace" method="get">
+    <input name="codeToDeleteTheRaceFromDB" placeholder="Input permission code:" type="text">
+    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
+    <input name="dataOfTheRace" placeholder="Input year of the race:" type="text">
+    <input type="submit" value="Delete F1 race from DB">
+</form>
+
 <!--
 <form action="/tyres" method="get">
     <input name="login" placeholder="This is information about tires" type="text">
