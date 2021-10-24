@@ -19,6 +19,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class CalculatorTest {
 
+    @DisplayName("JUnit5 - Calculator * ")
+    @Test
+    void multiplyTwoNumbers() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.multiply(2, 3), "2 * 3 should equal 6");
+    }
+
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @CsvSource({
+            "2,    3,   6",
+            "5,    9,   45",
+            "40,  50, 2000",
+            "1,  100, 100"
+    })
+    void multiply(int first, int second, int expectedResult) {
+        Calculator calculator = new Calculator();
+        assertEquals(expectedResult, calculator.multiply(first, second),
+                () -> first + " * " + second + " should equal " + expectedResult);
+    }
+
     @DisplayName("JUnit5 - Calculator + ")
     @Test
     void addsTwoNumbers() {
