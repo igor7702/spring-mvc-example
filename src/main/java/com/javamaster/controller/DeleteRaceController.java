@@ -1,6 +1,6 @@
 package com.javamaster.controller;
 
-import com.javamaster.dao.SetRaceToDB;
+import com.javamaster.dao.DeleteRaceFromDB;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +11,11 @@ public class DeleteRaceController {
 
     @GetMapping("/deleteRace")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
-                       Model model, String yearOfTheRace, String countryOfTheRace,
-                       String cityOfTheRace) {
+                       Model model, String yearOfTheRace, String codeToDeleteTheRaceFromDB
+                       ) {
 
-        SetRaceToDB raceToDBObj;
-        raceToDBObj = new SetRaceToDB(numberOfTheRaceWeek, yearOfTheRace, countryOfTheRace, cityOfTheRace);
+        DeleteRaceFromDB raceFromDBObj;
+        raceFromDBObj = new DeleteRaceFromDB(numberOfTheRaceWeek, yearOfTheRace, codeToDeleteTheRaceFromDB);
 
         return "answerAddRaceInfo_page";
     }

@@ -1,14 +1,8 @@
 package com.javamaster.model;
 
-import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.RepetitionInfo;
-import org.junit.jupiter.api.TestReporter;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ParameterResolver;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -57,5 +51,13 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(expectedResult, calculator.add(first, second),
                 () -> first + " + " + second + " should equal " + expectedResult);
+    }
+
+    @Disabled("Temporary disabled")
+    @DisplayName("JUnit5 - Calculator /")
+    @Test
+    void divideTwoNumbers(){
+        Calculator calculator = new Calculator();
+        assertEquals(7, calculator.divide(28, 4), "28 / 4 should equal 7");
     }
 }
