@@ -23,7 +23,7 @@ public class DeleteRaceFromDB {
         Statement stmt = null;
         int idRace = 1;
         boolean answerAboutDelete;
-        String qwRaceWeek="", qwRaceYear="",qwRaceCountry="", qwraceCity="";
+        String qwRaceWeek="", qwRaceYear="",qwSpecialCode;
         show();
 
         try {
@@ -34,8 +34,15 @@ public class DeleteRaceFromDB {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
+            try {
+                idRace = Integer.parseInt(raceYear+raceWeek);
+                System.out.println(idRace);
+            } catch (NumberFormatException e) {
+                System.err.println("Wrong format for the idRace!");
+            }
+
             stmt = c.createStatement();
-            String sql = "DELETE from COMPANY where ID = 2;";
+            String sql = "DELETE from COMPANY where ID = " + idRace + ";";
             stmt.executeUpdate(sql);
             c.commit();
 

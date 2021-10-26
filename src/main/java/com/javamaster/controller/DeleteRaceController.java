@@ -17,6 +17,6 @@ public class DeleteRaceController {
         DeleteRaceFromDB raceFromDBObj;
         raceFromDBObj = new DeleteRaceFromDB(numberOfTheRaceWeek, yearOfTheRace, codeToDeleteTheRaceFromDB);
 
-        return "answerAddRaceInfo_page";
+        return "answerDeleteRace_page";
     }
 }

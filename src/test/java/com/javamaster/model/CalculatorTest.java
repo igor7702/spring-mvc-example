@@ -8,7 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.javamaster.model.Calculator;
 
+import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @SpringBootTest
 public class CalculatorTest {
@@ -59,5 +61,15 @@ public class CalculatorTest {
     void divideTwoNumbers(){
         Calculator calculator = new Calculator();
         assertEquals(7, calculator.divide(28, 4), "28 / 4 should equal 7");
+    }
+    @Test
+    void abortedTest() {
+        assumeTrue("abc".contains("Z"));
+        fail("test should have been aborted");
+    }
+
+    @Test
+    void trueTest(){
+        assumeTrue("abc".contains("abc"));
     }
 }
