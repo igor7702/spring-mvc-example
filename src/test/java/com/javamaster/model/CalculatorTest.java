@@ -68,6 +68,7 @@ public class CalculatorTest {
         fail("test should have been aborted");
     }
 
+    @RepeatedTest(2)
     @Test
     void trueTest(){
         assumeTrue("abc".contains("abc"));
