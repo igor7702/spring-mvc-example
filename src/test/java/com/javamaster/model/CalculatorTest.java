@@ -5,11 +5,14 @@ import org.junit.jupiter.api.extension.ParameterResolver;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.javamaster.model.Calculator;
 
 import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @SpringBootTest
@@ -55,6 +58,12 @@ public class CalculatorTest {
                 () -> first + " + " + second + " should equal " + expectedResult);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"racecar", "radar", "able was I ere I saw elba" })
+    void palinderoms(String candidate){
+        //assertTrue(StringUtils.isBlank(candidate));
+    }
+
     @Disabled("Temporary disabled")
     @DisplayName("JUnit5 - Calculator /")
     @Test
@@ -73,4 +82,5 @@ public class CalculatorTest {
     void trueTest(){
         assumeTrue("abc".contains("abc"));
     }
+
 }
