@@ -61,6 +61,11 @@ class SpringMvcApplicationTests {
 	void DeleteRaceFromDB(){
 	}
 
+	@DisplayName("JUnit5 - ChangeRaceFromDB()")
+	@Test
+	void ChangeRaceFromDB(){
+	}
+
 	@DisplayName("JUnit5 - Calculator + ")
 	@Test
 	void addsTwoNumbers() {
