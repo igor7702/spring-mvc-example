@@ -8,6 +8,7 @@ import java.sql.Statement;
 public class GetRaceFromDB {
     int number;
     String countryRace;
+    String cityRace;
 
     void show() {
         System.out.println("Number: " + number);
@@ -16,11 +17,14 @@ public class GetRaceFromDB {
     public String getCountryRace() {
         return countryRace;
     }
+    public String getCityRace() {
+        return cityRace;
+    }
 
     public GetRaceFromDB(String raceWeek, String raceYear) {
         number = 100;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         show();
         try {
             Class.forName("org.postgresql.Driver");
@@ -38,8 +42,10 @@ public class GetRaceFromDB {
                 int age = rs.getInt("age");
                 String address = rs.getString("address");
                 float salary = rs.getFloat("salary");
-                String raceWeekOut = rs.getString("raceWeek");
-                String raceYearOut = rs.getString("raceYear");
+                String raceWeekOut = rs.getString("raceweek");
+                String raceYearOut = rs.getString("raceyear");
+                String raceCountryOut = rs.getString("racecountry");
+                String raceCityOut = rs.getString("racecity");
                 System.out.println("ID = " + id);
                 System.out.println("NAME = " + name);
                 System.out.println("AGE = " + age);
@@ -47,8 +53,8 @@ public class GetRaceFromDB {
                 System.out.println("SALARY = " + salary);
                 System.out.println();
 
-                // For getCountryRace
                 countryRace = address;
+                cityRace = raceCityOut;
             }
             rs.close();
             stmt.close();

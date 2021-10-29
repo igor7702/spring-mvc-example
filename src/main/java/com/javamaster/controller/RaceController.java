@@ -11,7 +11,8 @@ public class RaceController {
 
     @GetMapping("/race")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
-                       Model model, String dataOfTheRace, String countryRace) {
+                       Model model, String dataOfTheRace, String countryRace, String countrOfTheRace,
+                       String cityOfTheRace) {
 
         GetRaceFromDB raceFromDBObj;
         raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, dataOfTheRace);

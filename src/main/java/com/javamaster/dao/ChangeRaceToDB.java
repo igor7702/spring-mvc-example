@@ -19,11 +19,11 @@ public class ChangeRaceToDB {
 
     public ChangeRaceToDB(String raceWeek, String raceYear, String raceCountry, String raceCity) {
         number = 100;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         int idRace = 1;
         boolean answerAboutChange;
-        String qwRaceWeek="", qwRaceYear="",qwRaceCountry="", qwraceCity="";
+        String qwRaceWeek, qwRaceYear,qwRaceCountry, qwraceCity;
         show();
 
         try {
@@ -43,21 +43,20 @@ public class ChangeRaceToDB {
                 System.err.println("Wrong format for the idRace!");
             }
 
-//            qwRaceWeek = ", '"+raceWeek+"'";
-//            qwRaceYear = ", '"+raceYear+"'";
-//            qwRaceCountry = ", '"+raceCountry+"'";
-//            qwraceCity = ", '"+raceCity+"'";
-
-//            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY," +
-//                    "RACEWEEK,RACEYEAR,RACECOUNTRY,RACECITY) "
-//                    + "VALUES (" + idRace + ", 'Paul', 32, 'California', 20000.00" +
-//                    qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity +
-//                    ");";
-//            System.out.println(sql);
-//            stmt.executeUpdate(sql);
+            qwRaceWeek = " '"+raceWeek+"' ,";
+            qwRaceYear = " '"+raceYear+"' ,";
+            qwRaceCountry = " '"+raceCountry+"' ,";
+            qwraceCity = " '"+raceCity+"'";
 
             stmt = c.createStatement();
-            String sql = "UPDATE COMPANY set SALARY = 30000.00 where ID=1;";
+            String sql = "UPDATE COMPANY set " +
+                    "SALARY = 30000.00 ," +
+                    "RACEWEEK =" + qwRaceWeek +
+                    "RACEYEAR =" + qwRaceYear +
+                    "RACECOUNTRY =" + qwRaceCountry +
+                    "RACECITY =" + qwraceCity +
+                    " where ID=" + idRace + ";";
+            System.out.println( "qwSql = " + sql );
             stmt.executeUpdate(sql);
             c.commit();
 
