@@ -24,6 +24,7 @@ public class ChangeRaceToDB {
         int idRace = 1;
         boolean answerAboutChange;
         String qwRaceWeek, qwRaceYear,qwRaceCountry, qwraceCity;
+
         show();
 
         try {
