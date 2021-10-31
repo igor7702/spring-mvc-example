@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>Welcome to the Spring MVC application</h1>
+
 <form action="/home" method="get">
     <input name="login" placeholder="Please, paste login here" type="text">
     <input type="submit" value="Navigate to the myhome page">
@@ -32,13 +33,19 @@ CRUD jdbc operations:
     <input type="submit" value="Change the race information!">
 </form>
 
-<p> </p>
-
 <form action="/deleteRace" method="get">
     <input name="codeToChangeTheRaceInDB" placeholder="Input permission code:" type="text">
     <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
     <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
     <input type="submit" value="Delete F1 race from DB">
+</form>
+
+<p> </p>
+CRUD Hibernate/Spring data operations:
+<p> </p>
+
+<form action="/addAddressUser" method="get">
+    <input type="submit" value="Add new information about address and user!">
 </form>
 
 <!--

@@ -1,5 +1,7 @@
 package com.javamaster.dao;
 
+import lombok.Getter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,6 +10,7 @@ import java.sql.Statement;
 public class GetRaceFromDB {
     int number;
     String countryRace;
+    @Getter
     String cityRace;
 
     void show() {
@@ -16,9 +19,6 @@ public class GetRaceFromDB {
 
     public String getCountryRace() {
         return countryRace;
-    }
-    public String getCityRace() {
-        return cityRace;
     }
 
     public GetRaceFromDB(String raceWeek, String raceYear) {
