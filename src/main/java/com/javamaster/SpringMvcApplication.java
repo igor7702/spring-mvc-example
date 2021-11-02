@@ -3,9 +3,6 @@ package com.javamaster;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.javamaster.entity.Address;
-import com.javamaster.entity.Users;
-import com.javamaster.service.AddressService;
 import com.javamaster.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -23,17 +20,6 @@ public class SpringMvcApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     private void testJpaMethods(){
-
-//        Address address = new Address();
-//        address.setCity("Pskov");
-//        address.setHomeNumber("9");
-//        address.setStreet("Flower Street");
-//
-//        Users users = new Users();
-//        users.setAddress(address);
-//        users.setEmail("someEmail@list.ru");
-//        users.setName("Petr");
-//        userService.createUsers(users);
 
         userService.findAll().forEach(it-> System.out.println(it));
 
