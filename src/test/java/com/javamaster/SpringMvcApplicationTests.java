@@ -61,9 +61,9 @@ class SpringMvcApplicationTests {
 	void DeleteRaceFromDB(){
 	}
 
-	@DisplayName("JUnit5 - ChangeRaceFromDB()")
+	@DisplayName("JUnit5 - ChangeRaceToDB()")
 	@Test
-	void ChangeRaceFromDB(){
+	void ChangeRaceToDB(){
 	}
 
 	@DisplayName("JUnit5 - Calculator + ")

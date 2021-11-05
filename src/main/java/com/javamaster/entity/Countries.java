@@ -16,10 +16,10 @@ public class Countries {
     @Column
     @Setter
     @Getter
-    private String codeCountry;
+    private String code_country;
 
     @Column
-    private String nameCountry;
+    private String name_country;
 
     public Long getId() {
         return id;
@@ -28,19 +28,19 @@ public class Countries {
         this.id = id;
     }
 
-    public String getName() {
-        return nameCountry;
+    public String getName_country() {
+        return name_country;
     }
-    public void setName(String street) {
-        this.nameCountry = street;
+    public void setName_country(String country) {
+        this.name_country = country;
     }
 
     @Override
     public String toString() {
-        return "Address{" +
+        return "Company{" +
                 "id=" + id +
-                ", code='" + codeCountry + '\'' +
-                ", name='" + nameCountry + '\'' +
+                ", code='" + code_country + '\'' +
+                ", name='" + name_country + '\'' +
                 '}';
     }
 }

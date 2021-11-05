@@ -21,8 +21,8 @@ public class AddCountryController {
                        String PermissionCodeCountry, String codeCountry, String nameCountry) {
 
         Countries countries = new Countries();
-        countries.setName(nameCountry);
-        countries.setCodeCountry(codeCountry);
+        countries.setName_country(nameCountry);
+        countries.setCode_country(codeCountry);
         countryService.createCountry(countries);
 
         return "answerAddGood_page";
