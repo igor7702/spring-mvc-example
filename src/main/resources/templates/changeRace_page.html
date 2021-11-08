@@ -8,6 +8,12 @@
 <h1>Change information about the race!!!</h1>
 
 <form action="/changeRaceInfo" method="get">
+    <h5>Number of the week race:  <span th:text="${numberOfTheRaceWeek}"></span></h5>
+    <h5>Year of the race: <span th:text="${dataOfTheRace}"></span></h5>
+<!--    <h6>Welcome <span th:text="${countryOfTheRace}"></span></h6>-->
+<!--    <h6>Welcome <span th:text="${cityOfTheRace}"></span></h6>-->
+    <p> </p>
+
     <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
     <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
     <input name="countryOfTheRace" placeholder="Input country of the race:" type="text">

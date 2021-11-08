@@ -11,26 +11,26 @@ public class ChangeRaceController {
 
     @GetMapping("/changeRace")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
-                       Model model, String yearOfTheRace, String codeToChangeTheRaceInDB) {
+                       Model model, String dataOfTheRace, String codeToChangeTheRaceInDB) {
 
         String countryRace;
         String cityrace="";
 
         GetRaceFromDB raceFromDBObj;
-               raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, yearOfTheRace);
+               raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, dataOfTheRace);
 
                countryRace = raceFromDBObj.getCountryRace();
                cityrace = raceFromDBObj.getCityRace();
 
                System.out.println("Country of the race is : " + countryRace);
                System.out.println("Week number of the race is: " + numberOfTheRaceWeek);
-//               System.out.println("Year of the race is: " + dataOfTheRace);
+               System.out.println("Year of the race is: " + dataOfTheRace);
 //                model.addAttribute("countryRace", countryRace);
 //                model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
 //                model.addAttribute("dataOfTheRace", dataOfTheRace);
 
                 model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
-                model.addAttribute("yearOfTheRace", yearOfTheRace);
+                model.addAttribute("dataOfTheRace", dataOfTheRace);
                 model.addAttribute("codeToChangeTheRaceInDB", codeToChangeTheRaceInDB);
         return "changeRace_page";
     }

@@ -19,6 +19,6 @@ public interface CountriesRepository extends JpaRepository<Countries, Long> {
         //или - можно написать запрос на чистом SQL
     List<Countries> findWhereNameCountryIsRussia();
 
-    @Query(value = "delete * from country where code_country like '%643%'", nativeQuery = true)
-    List<Countries> deleteWhereCodeCountryIs643();
+//    @Query(value = "delete * from country where code_country like '%643%'", nativeQuery = true)
+//    List<Countries> deleteWhereCodeCountryIs643();
 }
