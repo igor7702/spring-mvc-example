@@ -26,6 +26,9 @@ public class GetRaceFromDB {
         Connection c;
         Statement stmt;
         show();
+
+        System.out.println("Year: " + raceYear);
+
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager

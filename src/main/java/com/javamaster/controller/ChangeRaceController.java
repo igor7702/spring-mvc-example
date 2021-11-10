@@ -11,26 +11,26 @@ public class ChangeRaceController {
 
     @GetMapping("/changeRace")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
-                       Model model, String dataOfTheRace, String codeToChangeTheRaceInDB) {
+                       Model model, String yearOfTheRace, String codeToChangeTheRaceInDB) {
 
-        String countryRace;
-        String cityrace="";
+        String countryOfTheRace;
+        String cityOfTheRace;
 
         GetRaceFromDB raceFromDBObj;
-               raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, dataOfTheRace);
+               raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, yearOfTheRace);
 
-               countryRace = raceFromDBObj.getCountryRace();
-               cityrace = raceFromDBObj.getCityRace();
+               countryOfTheRace = raceFromDBObj.getCountryRace();
+               cityOfTheRace = raceFromDBObj.getCityRace();
 
-               System.out.println("Country of the race is : " + countryRace);
                System.out.println("Week number of the race is: " + numberOfTheRaceWeek);
-               System.out.println("Year of the race is: " + dataOfTheRace);
-//                model.addAttribute("countryRace", countryRace);
-//                model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
-//                model.addAttribute("dataOfTheRace", dataOfTheRace);
+               System.out.println("Year of the race is: " + yearOfTheRace);
+               System.out.println("Country of the race is: " + countryOfTheRace);
+               System.out.println("City of the race is: " + cityOfTheRace);
 
                 model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
-                model.addAttribute("dataOfTheRace", dataOfTheRace);
+                model.addAttribute("dataOfTheRace", yearOfTheRace);
+                model.addAttribute("countryOfTheRace", countryOfTheRace);
+                model.addAttribute("cityOfTheRace", cityOfTheRace);
                 model.addAttribute("codeToChangeTheRaceInDB", codeToChangeTheRaceInDB);
         return "changeRace_page";
     }
