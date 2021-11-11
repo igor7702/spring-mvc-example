@@ -20,7 +20,7 @@ public class SetRaceToDB {
         number = 100;
         Connection c = null;
         Statement stmt = null;
-        int idRace = 1;
+        int idRace = 1, idCountry = 1, idCity = 1;
         boolean answerAbouSet;
         String qwRaceWeek="", qwRaceYear="",qwRaceCountry="", qwraceCity="";
         show();
@@ -28,7 +28,7 @@ public class SetRaceToDB {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/shoes_shop",
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "12");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
@@ -42,15 +42,15 @@ public class SetRaceToDB {
                 System.err.println("Wrong format for the idRace!");
             }
 
-            qwRaceWeek = ", '"+raceWeek+"'";
+            qwRaceWeek = "'" + raceWeek+"'";
             qwRaceYear = ", '"+raceYear+"'";
             qwRaceCountry = ", '"+raceCountry+"'";
             qwraceCity = ", '"+raceCity+"'";
 
-            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY," +
-                    "RACEWEEK,RACEYEAR,RACECOUNTRY,RACECITY) "
-                    + "VALUES (" + idRace + ", 'Paul', 32, 'California', 20000.00" +
-                    qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity +
+            String sql = "INSERT INTO RACES (WEEK_RACE,YEAR_RACE,COUNTRY_NAME_RACE,CITY_NAME_RACE," +
+                    "COUNTRY_ID_RACE,CITY_ID_RACE,ID_RACE) "
+                    + "VALUES (" + qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity
+                    + "," + idCountry + "," + idCity + "," + idRace +
                     ");";
             System.out.println(sql);
             stmt.executeUpdate(sql);

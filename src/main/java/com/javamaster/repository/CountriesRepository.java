@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CountriesRepository extends JpaRepository<Countries, Long> {
 
-    //List<Countries> findAllByName(String name);//просто правильное название метода даст возможность
+    //List<Countries> findfindAllByName(String name);//просто правильное название метода даст возможность
     ////избежать запросов на SQL
 
 //    @Query("select u from Countries u where u.code_country like '%643%'")//или написать
