@@ -21,6 +21,7 @@ public class SetRaceToDB {
         Connection c = null;
         Statement stmt = null;
         int idRace = 1, idCountry = 1, idCity = 1;
+        String permissionCode = "4545";
         boolean answerAbouSet;
         String qwRaceWeek="", qwRaceYear="",qwRaceCountry="", qwraceCity="";
         show();
@@ -53,6 +54,13 @@ public class SetRaceToDB {
                     + "," + idCountry + "," + idCity + "," + idRace +
                     ");";
             System.out.println(sql);
+
+//            if(str1.equalsIgnoreCase(str2)){
+//                System.out.println("Statement  is true");
+//            }else{
+//                System.out.println("Statement is false");
+//            }
+
             stmt.executeUpdate(sql);
 
             stmt.close();

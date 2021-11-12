@@ -22,6 +22,7 @@ public class DeleteRaceFromDB {
         Connection c = null;
         Statement stmt = null;
         int idRace = 1;
+        String permissionCode = "4545";
         boolean answerAboutDelete;
         String qwRaceWeek="", qwRaceYear="",qwSpecialCode;
         show();
@@ -41,42 +42,42 @@ public class DeleteRaceFromDB {
                 System.err.println("Wrong format for the idRace!");
             }
 
-            stmt = c.createStatement();
-            String sql = "DELETE from RACES where ID_RACE = " + idRace + ";";
-            stmt.executeUpdate(sql);
-            c.commit();
+            if(specialCode.equals(permissionCode)){
+                System.out.println("Statement  is true");
+                stmt = c.createStatement();
+                String sql = "DELETE from RACES where ID_RACE = " + idRace + ";";
+                stmt.executeUpdate(sql);
+                c.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
-            while ( rs.next() ) {
-                int id = rs.getInt("id");
-                String  week_race = rs.getString("week_race");
-                String  year_race = rs.getString("year_race");
-                String  country_name_race = rs.getString("country_name_race");
-                String  city_name_race = rs.getString("city_name_race");
-                int country_id_race = rs.getInt("country_id_race");
-                int city_id_race = rs.getInt("city_id_race");
-                String  id_race = rs.getString("id_race");
+                ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
+                while ( rs.next() ) {
+                    int id = rs.getInt("id");
+                    String  week_race = rs.getString("week_race");
+                    String  year_race = rs.getString("year_race");
+                    String  country_name_race = rs.getString("country_name_race");
+                    String  city_name_race = rs.getString("city_name_race");
+                    int country_id_race = rs.getInt("country_id_race");
+                    int city_id_race = rs.getInt("city_id_race");
+                    String  id_race = rs.getString("id_race");
 
-                System.out.println( "id = " + id );
-                System.out.println( "week_race = " + week_race );
-                System.out.println( "year_race = " + year_race );
-                System.out.println( "country_name_race = " + country_name_race );
-                System.out.println( "city_name_race = " + city_name_race );
-                System.out.println( "country_id_race = " + country_id_race );
-                System.out.println( "city_id_race = " + city_id_race );
-                System.out.println( "id_race = " + id_race );
-                System.out.println();
+                    System.out.println( "id = " + id );
+                    System.out.println( "week_race = " + week_race );
+                    System.out.println( "year_race = " + year_race );
+                    System.out.println( "country_name_race = " + country_name_race );
+                    System.out.println( "city_name_race = " + city_name_race );
+                    System.out.println( "country_id_race = " + country_id_race );
+                    System.out.println( "city_id_race = " + city_id_race );
+                    System.out.println( "id_race = " + id_race );
+                    System.out.println();
+                }
+                rs.close();
+
+            }else{
+                System.out.println("Statement is false");
             }
-            rs.close();
+
             stmt.close();
             c.close();
-
-            try {
-                idRace = Integer.parseInt(raceYear+raceWeek);
-                System.out.println(idRace);
-            } catch (NumberFormatException e) {
-                System.err.println("Wrong format for the idRace!");
-            }
 
         } catch (Exception e) {
             answerAboutDelete = false;

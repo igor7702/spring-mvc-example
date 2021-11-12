@@ -22,6 +22,7 @@ public class ChangeRaceToDB {
         Connection c;
         Statement stmt;
         int idRace = 1;
+        String permissionCode = "4545";
         boolean answerAboutChange;
         String qwRaceWeek, qwRaceYear,qwRaceCountry, qwraceCity;
 
@@ -60,6 +61,12 @@ public class ChangeRaceToDB {
             System.out.println( "qwSql = " + sql );
             stmt.executeUpdate(sql);
             c.commit();
+
+//            if(str1.equalsIgnoreCase(str2)){
+//                System.out.println("Statement  is true");
+//            }else{
+//                System.out.println("Statement is false");
+//            }
 
             ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
             while ( rs.next() ) {
