@@ -30,7 +30,7 @@ public class ChangeRaceToDB {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/shoes_shop",
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "12");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
@@ -50,29 +50,36 @@ public class ChangeRaceToDB {
             qwraceCity = " '"+raceCity+"'";
 
             stmt = c.createStatement();
-            String sql = "UPDATE COMPANY set " +
-                    "SALARY = 30000.00 ," +
-                    "RACEWEEK =" + qwRaceWeek +
-                    "RACEYEAR =" + qwRaceYear +
-                    "RACECOUNTRY =" + qwRaceCountry +
-                    "RACECITY =" + qwraceCity +
-                    " where ID=" + idRace + ";";
+            String sql = "UPDATE RACES set " +
+                    "WEEK_RACE =" + qwRaceWeek +
+                    "YEAR_RACE =" + qwRaceYear +
+                    "COUNTRY_NAME_RACE =" + qwRaceCountry +
+                    "CITY_NAME_RACE =" + qwraceCity +
+                    " where ID_RACE=" + idRace +
+                    ";";
             System.out.println( "qwSql = " + sql );
             stmt.executeUpdate(sql);
             c.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
             while ( rs.next() ) {
                 int id = rs.getInt("id");
-                String  name = rs.getString("name");
-                int age  = rs.getInt("age");
-                String  address = rs.getString("address");
-                float salary = rs.getFloat("salary");
-                System.out.println( "ID = " + id );
-                System.out.println( "NAME = " + name );
-                System.out.println( "AGE = " + age );
-                System.out.println( "ADDRESS = " + address );
-                System.out.println( "SALARY = " + salary );
+                String  week_race = rs.getString("week_race");
+                String  year_race = rs.getString("year_race");
+                String  country_name_race = rs.getString("country_name_race");
+                String  city_name_race = rs.getString("city_name_race");
+                int country_id_race = rs.getInt("country_id_race");
+                int city_id_race = rs.getInt("city_id_race");
+                String  id_race = rs.getString("id_race");
+
+                System.out.println( "id = " + id );
+                System.out.println( "week_race = " + week_race );
+                System.out.println( "year_race = " + year_race );
+                System.out.println( "country_name_race = " + country_name_race );
+                System.out.println( "city_name_race = " + city_name_race );
+                System.out.println( "country_id_race = " + country_id_race );
+                System.out.println( "city_id_race = " + city_id_race );
+                System.out.println( "id_race = " + id_race );
                 System.out.println();
             }
 

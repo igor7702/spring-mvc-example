@@ -18,13 +18,17 @@ public class RaceController {
         raceFromDBObj = new GetRaceFromDB(numberOfTheRaceWeek, dataOfTheRace);
 
         countryRace = raceFromDBObj.getCountryRace();
+        cityOfTheRace = raceFromDBObj.getCityRace();
 
         System.out.println("Country of the race is : " + countryRace);
+        System.out.println("City of the race is : " + cityOfTheRace);
         System.out.println("Week number of the race is: " + numberOfTheRaceWeek);
         System.out.println("Year of the race is: " + dataOfTheRace);
+
         model.addAttribute("countryRace", countryRace);
         model.addAttribute("numberOfTheRaceWeek", numberOfTheRaceWeek);
         model.addAttribute("dataOfTheRace", dataOfTheRace);
+        model.addAttribute("cityOfTheRace", cityOfTheRace);
 
         return "race_page";
     }
