@@ -1,5 +1,6 @@
 package com.javamaster;
 
+import com.javamaster.dao.DeleteCountryFromDB;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,6 +18,9 @@ public class SpringMvcApplication {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private DeleteCountryFromDB deleteCountryFromDB;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcApplication.class, args);
     }
@@ -31,5 +35,9 @@ public class SpringMvcApplication {
         userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
 
         userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
+
+//      deleteCountryFromDB.deleteCountry643();
+//      deleteCountryFromDB.deleteCountryCodeParametr("844");
+
     }
 }

@@ -13,10 +13,11 @@ public class ChangeRaceInfoController {
     @GetMapping("/changeRaceInfo")
     public String home(@RequestParam(required = false) String numberOfTheRaceWeek,
                        Model model, String yearOfTheRace, String countryOfTheRace,
-                       String cityOfTheRace) {
+                       String cityOfTheRace, String specialCode) {
 
         ChangeRaceToDB raceToDBObj;
-        raceToDBObj = new ChangeRaceToDB(numberOfTheRaceWeek, yearOfTheRace, countryOfTheRace, cityOfTheRace);
+        raceToDBObj = new ChangeRaceToDB(numberOfTheRaceWeek, yearOfTheRace, countryOfTheRace,
+                cityOfTheRace, specialCode);
 
         return "answerChangeRaceInfo_page";
     }

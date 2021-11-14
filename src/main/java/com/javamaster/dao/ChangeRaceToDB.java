@@ -17,7 +17,8 @@ public class ChangeRaceToDB {
         return answerAboutChange;
     }
 
-    public ChangeRaceToDB(String raceWeek, String raceYear, String raceCountry, String raceCity) {
+    public ChangeRaceToDB(String raceWeek, String raceYear, String raceCountry, String raceCity,
+                          String specialCode) {
         number = 100;
         Connection c;
         Statement stmt;
@@ -50,48 +51,50 @@ public class ChangeRaceToDB {
             qwRaceCountry = " '"+raceCountry+"' ,";
             qwraceCity = " '"+raceCity+"'";
 
-            stmt = c.createStatement();
-            String sql = "UPDATE RACES set " +
-                    "WEEK_RACE =" + qwRaceWeek +
-                    "YEAR_RACE =" + qwRaceYear +
-                    "COUNTRY_NAME_RACE =" + qwRaceCountry +
-                    "CITY_NAME_RACE =" + qwraceCity +
-                    " where ID_RACE=" + idRace +
-                    ";";
-            System.out.println( "qwSql = " + sql );
-            stmt.executeUpdate(sql);
-            c.commit();
+            if(specialCode.equals(permissionCode)) {
+                System.out.println("Statement  is true");
+                stmt = c.createStatement();
 
-//            if(str1.equalsIgnoreCase(str2)){
-//                System.out.println("Statement  is true");
-//            }else{
-//                System.out.println("Statement is false");
-//            }
+                String sql = "UPDATE RACES set " +
+                        "WEEK_RACE =" + qwRaceWeek +
+                        "YEAR_RACE =" + qwRaceYear +
+                        "COUNTRY_NAME_RACE =" + qwRaceCountry +
+                        "CITY_NAME_RACE =" + qwraceCity +
+                        " where ID_RACE=" + idRace +
+                        ";";
+                System.out.println( "qwSql = " + sql );
+                stmt.executeUpdate(sql);
+                c.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
-            while ( rs.next() ) {
-                int id = rs.getInt("id");
-                String  week_race = rs.getString("week_race");
-                String  year_race = rs.getString("year_race");
-                String  country_name_race = rs.getString("country_name_race");
-                String  city_name_race = rs.getString("city_name_race");
-                int country_id_race = rs.getInt("country_id_race");
-                int city_id_race = rs.getInt("city_id_race");
-                String  id_race = rs.getString("id_race");
+                ResultSet rs = stmt.executeQuery( "SELECT * FROM RACES;" );
 
-                System.out.println( "id = " + id );
-                System.out.println( "week_race = " + week_race );
-                System.out.println( "year_race = " + year_race );
-                System.out.println( "country_name_race = " + country_name_race );
-                System.out.println( "city_name_race = " + city_name_race );
-                System.out.println( "country_id_race = " + country_id_race );
-                System.out.println( "city_id_race = " + city_id_race );
-                System.out.println( "id_race = " + id_race );
-                System.out.println();
+                while ( rs.next() ) {
+                    int id = rs.getInt("id");
+                    String  week_race = rs.getString("week_race");
+                    String  year_race = rs.getString("year_race");
+                    String  country_name_race = rs.getString("country_name_race");
+                    String  city_name_race = rs.getString("city_name_race");
+                    int country_id_race = rs.getInt("country_id_race");
+                    int city_id_race = rs.getInt("city_id_race");
+                    String  id_race = rs.getString("id_race");
+
+                    System.out.println( "id = " + id );
+                    System.out.println( "week_race = " + week_race );
+                    System.out.println( "year_race = " + year_race );
+                    System.out.println( "country_name_race = " + country_name_race );
+                    System.out.println( "city_name_race = " + city_name_race );
+                    System.out.println( "country_id_race = " + country_id_race );
+                    System.out.println( "city_id_race = " + city_id_race );
+                    System.out.println( "id_race = " + id_race );
+                    System.out.println();
+                }
+                stmt.close();
+                c.commit();
+            }
+            else{
+                System.out.println("Statement is false");
             }
 
-            stmt.close();
-            c.commit();
             c.close();
         } catch (Exception e) {
             answerAboutChange = false;

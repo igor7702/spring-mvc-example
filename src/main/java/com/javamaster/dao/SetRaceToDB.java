@@ -16,7 +16,8 @@ public class SetRaceToDB {
         return answerAbouSet;
     }
 
-    public SetRaceToDB(String raceWeek, String raceYear, String raceCountry, String raceCity) {
+    public SetRaceToDB(String raceWeek, String raceYear, String raceCountry, String raceCity,
+                       String specialCode) {
         number = 100;
         Connection c = null;
         Statement stmt = null;
@@ -48,23 +49,24 @@ public class SetRaceToDB {
             qwRaceCountry = ", '"+raceCountry+"'";
             qwraceCity = ", '"+raceCity+"'";
 
-            String sql = "INSERT INTO RACES (WEEK_RACE,YEAR_RACE,COUNTRY_NAME_RACE,CITY_NAME_RACE," +
-                    "COUNTRY_ID_RACE,CITY_ID_RACE,ID_RACE) "
-                    + "VALUES (" + qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity
-                    + "," + idCountry + "," + idCity + "," + idRace +
-                    ");";
-            System.out.println(sql);
+            if(specialCode.equals(permissionCode)) {
+                System.out.println("Statement  is true");
+                String sql = "INSERT INTO RACES (WEEK_RACE,YEAR_RACE,COUNTRY_NAME_RACE,CITY_NAME_RACE," +
+                        "COUNTRY_ID_RACE,CITY_ID_RACE,ID_RACE) "
+                        + "VALUES (" + qwRaceWeek + qwRaceYear + qwRaceCountry + qwraceCity
+                        + "," + idCountry + "," + idCity + "," + idRace +
+                        ");";
+                System.out.println(sql);
 
-//            if(str1.equalsIgnoreCase(str2)){
-//                System.out.println("Statement  is true");
-//            }else{
-//                System.out.println("Statement is false");
-//            }
+                stmt.executeUpdate(sql);
 
-            stmt.executeUpdate(sql);
+                stmt.close();
+                c.commit();
+            }
+            else{
+                System.out.println("Statement is false");
+            }
 
-            stmt.close();
-            c.commit();
             c.close();
         } catch (Exception e) {
             answerAbouSet = false;

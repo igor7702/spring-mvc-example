@@ -21,6 +21,13 @@ public class UserService {
         usersRepository.save(users);
     }
 
+    public void deleteUser(Users users) {
+        usersRepository.delete(users);
+    }
+    public void deleteAllUsers(Users users) {
+        usersRepository.deleteAll();
+    }
+
     public List<Users> findAll(){
         return usersRepository.findAll();
     }
