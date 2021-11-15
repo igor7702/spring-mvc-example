@@ -18,8 +18,7 @@ public class DeleteCountryController {
     public String home(@RequestParam(required = false) String login, Model model,
                        String PermissionCodeCountry, String codeCountry) {
 
-        Countries countries = new Countries();
-        //deleteCountryService.(codeCountry);
+        deleteCountryFromDB.deleteCountryCodeParametr(codeCountry);
 
         return "answerDeleteGood_page";
     }
