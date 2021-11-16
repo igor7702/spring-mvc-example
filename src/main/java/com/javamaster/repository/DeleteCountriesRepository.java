@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface DeleteCountriesRepository extends JpaRepository<Countries, Long> {
 
+    @Modifying
+    @Transactional
     @Query(value = "delete from country where code_country like '%643%'", nativeQuery = true)
     List<Countries> deleteWhereCodeCountryIs643();
 

@@ -34,10 +34,6 @@ public class CountryService {
 //        return countriesRepository.findAllByName(name);
 //    }
 
-//    public List<Countries> findWhereCodeContryIs643(){
-//        return countriesRepository.findWhereCodeContryIs643();
-//    }
-
     public List<Countries> findWhereNameCountryIsRussia(){
         return countriesRepository.findWhereNameCountryIsRussia();
     }

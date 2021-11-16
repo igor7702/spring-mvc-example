@@ -41,7 +41,7 @@ CRUD jdbc operations:
 </form>
 
 <p> </p>
-CRUD Hibernate/Spring data operations:
+CRUD Hibernate/Spring data operations (Native queries):
 <p> </p>
 
 <form action="/addAddressUser" method="get">
@@ -53,6 +53,12 @@ CRUD Hibernate/Spring data operations:
     <input name="codeCountry" placeholder="Input a code of the Country:" type="text">
     <input name="nameCountry" placeholder="Input a name of the Country:" type="text">
     <input type="submit" value="Add a name and a code of the country!">
+</form>
+
+<form action="/changeCountry" method="get">
+    <input name="codeToChangeTheCountryInDB" placeholder="Input permission code:" type="text">
+    <input name="codeCountry" placeholder="Input code of the country:" type="text">
+    <input type="submit" value="Change the country!">
 </form>
 
 <form action="/deleteCountry" method="get">
