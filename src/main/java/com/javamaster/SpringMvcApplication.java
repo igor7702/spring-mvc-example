@@ -1,6 +1,7 @@
 package com.javamaster;
 
 import com.javamaster.dao.GetCountryFromDB;
+import com.javamaster.entity.Countries;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -35,6 +36,9 @@ public class SpringMvcApplication {
         userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
 
         getCountryFromDB.findWhereCodeCountryParam("643").forEach(it->System.out.println(it));
+        Countries countries = getCountryFromDB.findWhereCodeCountryParam("643").get(0);
+        String nameCountry=countries.getName_country();
+        System.out.println(nameCountry);
 
         userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
 

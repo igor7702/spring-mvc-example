@@ -1,6 +1,7 @@
 package com.javamaster.controller;
 
 import com.javamaster.dao.GetCountryFromDB;
+import com.javamaster.entity.Countries;
 import com.javamaster.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,9 @@ public class ChangeCountryController {
         String nameCountry = "";
 
         userService.findAllByName("Smith").forEach(it-> System.out.println(it));
-        //getCountryFromDB.getCountryCodeParametr(codeCountry);
+
+        Countries countries = getCountryFromDB.findWhereCodeCountryParam(codeCountry).get(0);
+        nameCountry=countries.getName_country();
 
         System.out.println("The code of the country is: " + codeCountry);
         System.out.println("The name of the country is: " + nameCountry);
