@@ -29,20 +29,15 @@ public class SpringMvcApplication {
     @EventListener(ApplicationReadyEvent.class)
     private void testJpaMethods(){
 
-        userService.findAll().forEach(it-> System.out.println(it));
-
-        userService.findAllByName("Smith").forEach(it-> System.out.println(it));
-
-        userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
-
-        getCountryFromDB.findWhereCodeCountryParam("643").forEach(it->System.out.println(it));
-        Countries countries = getCountryFromDB.findWhereCodeCountryParam("643").get(0);
-        String nameCountry=countries.getName_country();
-        System.out.println(nameCountry);
-
-        userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
-
-
+//        userService.findAll().forEach(it-> System.out.println(it));
+//        userService.findAllByName("Smith").forEach(it-> System.out.println(it));
+//        userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
+//        userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
+//
+//        getCountryFromDB.findWhereCodeCountryParam("643").forEach(it->System.out.println(it));
+//        Countries countries = getCountryFromDB.findWhereCodeCountryParam("643").get(0);
+//        String nameCountry=countries.getName_country();
+//        System.out.println(nameCountry);
 
     }
 }
