@@ -1,6 +1,5 @@
 package com.javamaster.controller;
 
-import com.javamaster.entity.Countries;
 import com.javamaster.dao.DeleteCountryFromDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
