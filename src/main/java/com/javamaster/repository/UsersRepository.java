@@ -15,7 +15,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
         //собственный запрос на языке похожем на SQL
     List<Users> findWhereEmailIsGmail();
 
-    @Query(value = "select * from users where name like '%smith%'", nativeQuery = true)
-        //или - можно написать запрос на чистом SQL
+    @Query(value = "select * from users  where name like '%smith%'", nativeQuery = true)
+        //        //или - можно написать запрос натом SQL
     List<Users> findWhereNameStartsFromSmith();
 }
