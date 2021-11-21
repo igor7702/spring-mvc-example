@@ -14,7 +14,7 @@ public class UpdateCountryFromDB {
         this.updateCountriesRepository = updateCountriesRepository;
     }
 
-    public void updateCountryCodeParametr(String codeCountry) {
-        updateCountriesRepository.updateWhereCodeCountryParam(codeCountry);
+    public void updateCountryCodeParametr(String codeCountry, String nameCountry) {
+        updateCountriesRepository.updateWhereCodeCountryParam(codeCountry, nameCountry);
     }
 }
