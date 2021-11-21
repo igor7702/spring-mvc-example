@@ -1,7 +1,5 @@
 package com.javamaster.dao;
 
-import com.javamaster.entity.Countries;
-import com.javamaster.entity.Users;
 import com.javamaster.repository.DeleteCountriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
