@@ -1,6 +1,7 @@
 package com.javamaster;
 
 import com.javamaster.dao.GetCountryFromDB;
+import com.javamaster.dao.UpdateCountryFromDB;
 import com.javamaster.entity.Countries;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,9 @@ public class SpringMvcApplication {
     @Autowired
     private GetCountryFromDB getCountryFromDB;
 
+    @Autowired
+    private UpdateCountryFromDB updateCountryFromDB;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcApplication.class, args);
     }
@@ -33,11 +37,13 @@ public class SpringMvcApplication {
 //        userService.findAllByName("Smith").forEach(it-> System.out.println(it));
 //        userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
 //        userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
-//
+
 //        getCountryFromDB.findWhereCodeCountryParam("643").forEach(it->System.out.println(it));
 //        Countries countries = getCountryFromDB.findWhereCodeCountryParam("643").get(0);
 //        String nameCountry=countries.getName_country();
 //        System.out.println(nameCountry);
+
+//        updateCountryFromDB.updateCountryCodeParametr("040", "Nepal");
 
     }
 }
