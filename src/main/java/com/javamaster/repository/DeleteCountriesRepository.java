@@ -20,4 +20,5 @@ public interface DeleteCountriesRepository extends JpaRepository<Countries, Long
     @Transactional
     @Query(nativeQuery = true, value = "delete from countries where code_country like :codeCountry")
     void deleteWhereCodeCountryParametr(String codeCountry);
+
 }
