@@ -2,6 +2,7 @@ package com.javamaster;
 
 import com.javamaster.dao.GetCountryFromDB;
 import com.javamaster.dao.UpdateCountryFromDB;
+import com.javamaster.dao.DeleteCityFromDB;
 import com.javamaster.entity.Countries;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,9 @@ public class SpringMvcApplication {
     @Autowired
     private UpdateCountryFromDB updateCountryFromDB;
 
+    @Autowired
+    private DeleteCityFromDB deleteCityFromDB;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcApplication.class, args);
     }
@@ -44,6 +48,7 @@ public class SpringMvcApplication {
 //        System.out.println(nameCountry);
 
 //        updateCountryFromDB.updateCountryCodeParametr("040", "Nepal");
+//        deleteCityFromDB.deleteCitiesById(2L);
 
     }
 }
