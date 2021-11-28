@@ -9,7 +9,5 @@ import java.util.List;
 
 public interface DeleteCitiesRepository extends JpaRepository<Cities, Long> {
 
-    @Modifying
-    @Transactional
-    void deleteCitiesById(Long idCity);
+    void deleteById(Long idCity);
 }

@@ -15,8 +15,8 @@ public class DeleteCityController {
 
     @GetMapping("/deleteCity")
     public String home(@RequestParam(required = false) Model model,
-                       String PermissionCodeCountry, Long idCity) {
-        // Конвертировать idCity в Лонг
+                       String PermissionCodeCountry, Long idCity, String nameCity) {
+
         deleteCityFromDB.deleteCitiesById(idCity);
 
         return "answerDeleteGood_page";

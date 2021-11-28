@@ -14,9 +14,9 @@ public class Cities {
     private Long id;
 
     @Column
-    @Setter
     @Getter
-    private String name_city;
+    @Setter
+    private String city_name;
 
     public Long getId() {
         return id;
@@ -25,12 +25,11 @@ public class Cities {
         this.id = id;
     }
 
-
     @Override
     public String toString() {
         return "Company{" +
                 "id=" + id +
-                ", name='" + name_city + '\'' +
+                ", name='" + city_name + '\'' +
                 '}';
     }
 }

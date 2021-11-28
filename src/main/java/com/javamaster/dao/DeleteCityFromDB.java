@@ -15,7 +15,7 @@ public class DeleteCityFromDB {
     }
 
     public void deleteCitiesById(Long idCity) {
-        deleteCitiesRepository.deleteCitiesById(idCity);
+        deleteCitiesRepository.deleteById(idCity);
     }
 
 }

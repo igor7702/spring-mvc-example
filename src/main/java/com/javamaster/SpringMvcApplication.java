@@ -48,7 +48,6 @@ public class SpringMvcApplication {
 //        System.out.println(nameCountry);
 
 //        updateCountryFromDB.updateCountryCodeParametr("040", "Nepal");
-//        deleteCityFromDB.deleteCitiesById(2L);
-
+//          deleteCityFromDB.deleteCitiesById(5L);
     }
 }
