@@ -1,7 +1,7 @@
 package com.javamaster.service;
 
 import com.javamaster.entity.Books;
-import com.javamaster.repository.BooksRepository;
+import com.javamaster.repository.GetCitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +11,21 @@ import java.util.List;
 public class BookService {
 
     @Autowired
-    private final BooksRepository booksRepository;
+    private final GetCitiesRepository getCitiesRepository;
 
-    public BookService(BooksRepository booksRepository){
-        this.booksRepository = booksRepository;
+    public BookService(GetCitiesRepository getCitiesRepository){
+        this.getCitiesRepository = getCitiesRepository;
     }
 
-    public List<Books> findAllByName(String name){
-        return booksRepository.findAllByName(name);
-    }
-
-    public List<Books> findAllByName(){
-        return booksRepository.findAllByName("Kosmos");
-    }
-
-    public List<Books> findWhereNameBunin(){
-        return booksRepository.findWhereNameBunin();
-    }
+//    public List<Books> findAllByName(String name){
+//        return getCitiesRepository.findAllByName(name);
+//    }
+//
+//    public List<Books> findAllByName(){
+//        return getCitiesRepository.findAllByName("Kosmos");
+//    }
+//
+//    public List<Books> findWhereNameBunin(){
+//        return getCitiesRepository.findWhereNameBunin();
+//    }
 }
