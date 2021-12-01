@@ -74,11 +74,18 @@ CRUD Hibernate/Spring data operations (JPA):
 <form action="/createCity" method="get">
     <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
     <input name="nameCity" placeholder="Input a name of the City:" type="text">
-    <input type="submit" value="Add a of the city!">
+    <input type="submit" value="Add the city!">
 </form>
 
 <form action="/getCity" method="get">
     <input type="submit" value="Get all cities from DB!">
+</form>
+
+<form action="/changeCity" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input name="codeCity" placeholder="Input an Id of the City:" type="number">
+    <input name="nameCity" placeholder="Input a name of the City:" type="text">
+    <input type="submit" value="Change the city!">
 </form>
 
 <form action="/deleteCity" method="get">

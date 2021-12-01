@@ -20,15 +20,16 @@ public class GetCityController {
     @Autowired
     private GetCityFromDB getCityFromDB;
 
-    @GetMapping("/getOurCity")
+    @GetMapping("/getCity")
     public String home(@RequestParam(required = false) Model model) {
 
         userService.findAllByName("Smith").forEach(it-> System.out.println(it));
 
         List<Cities> cities = getCityFromDB.findAllCitiesDB();
+        cities.forEach(it-> System.out.println(it));
 
-        model.addAttribute("listCities", cities);
+        // model.addAttribute("cities", cities);
 
-        return "getCity_page.html";
+        return "getCity_page";
     }
 }
