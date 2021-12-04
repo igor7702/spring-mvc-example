@@ -3,7 +3,7 @@ package com.javamaster;
 import com.javamaster.dao.GetCountryFromDB;
 import com.javamaster.dao.UpdateCityFromDB;
 import com.javamaster.dao.GetCityFromDB;
-import com.javamaster.entity.Countries;
+import com.javamaster.dao.SetHbRaceToDB;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,6 +29,9 @@ public class SpringMvcApplication {
     @Autowired
     private UpdateCityFromDB updateCityFromDB;
 
+    @Autowired
+    private SetHbRaceToDB setHbRaceToDB;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcApplication.class, args);
     }
@@ -48,5 +51,6 @@ public class SpringMvcApplication {
 
 //        getCityFromDB.findAllCitiesDB().forEach(it->System.out.println(it));
 //        updateCityFromDB.updateCityCodeParametr(1,"Noname2");
+
     }
 }

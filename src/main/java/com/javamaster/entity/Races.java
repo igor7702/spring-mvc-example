@@ -33,18 +33,18 @@ public class Races {
     @Getter
     private String city_name_race;
 
-//            country_id_race
-//    city_id_race
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id_race")
+    private Countries countries;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id_race")
+    private Cities cities;
 
     @Column
     @Setter
     @Getter
     private String id_race;
-
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
 
     public Long getId() {
         return id;
@@ -53,11 +53,18 @@ public class Races {
         this.id = id;
     }
 
-    public Address getAddress() {
-        return address;
+    public Cities getCities() {
+        return cities;
     }
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setCities(Cities cities) {
+        this.cities = cities;
+    }
+
+    public Countries getCountries() {
+        return countries;
+    }
+    public void setCountries(Countries countries) {
+        this.countries = countries;
     }
 
     @Override
@@ -66,7 +73,6 @@ public class Races {
                 "id=" + id +
                 ", name='" + week_race + '\'' +
                 ", email='" + year_race + '\'' +
-                ", address=" + address +
                 '}';
     }
 }
