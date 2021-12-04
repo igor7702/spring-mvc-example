@@ -12,4 +12,5 @@ public interface GetCitiesRepository extends JpaRepository<Cities, Long> {
     @Transactional(readOnly = true)
     @Query(value = "SELECT * FROM cities", nativeQuery = true)
     List<Cities> findAllCitiesDB();
+
 }
