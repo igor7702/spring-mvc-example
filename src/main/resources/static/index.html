@@ -19,7 +19,7 @@
 </form>
 
 <p> </p>
-CRUD jdbc operations:
+CRUD jdbc and Spring Data operations:
 <p> </p>
 
 <form action="/addRace" method="get">
@@ -37,11 +37,19 @@ CRUD jdbc operations:
     <input type="submit" value="Change the race information!">
 </form>
 
-<form action="/deleteRace" method="get">
+<!--<form action="/deleteRace" method="get">-->
+<!--    <input name="codeToChangeTheRaceInDB" placeholder="Input permission code:" type="text">-->
+<!--    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">-->
+<!--    <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">-->
+<!--    <input type="submit" value="Delete F1 race from DB (JDBC)">-->
+<!--</form>-->
+
+<form action="/deleteHbRace" method="get">
     <input name="codeToChangeTheRaceInDB" placeholder="Input permission code:" type="text">
+    <input name="id" placeholder="Input the id of the race:" type="text">
     <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
     <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
-    <input type="submit" value="Delete F1 race from DB">
+    <input type="submit" value="Delete F1 race from DB (Spring Data)">
 </form>
 
 <p> </p>

@@ -1,6 +1,5 @@
 package com.javamaster.repositoryTests;
 
-import com.javamaster.entity.Cities;
 import com.javamaster.entity.Races;
 import com.javamaster.repository.DeleteRacesRepository;
 import org.junit.jupiter.api.Assertions;

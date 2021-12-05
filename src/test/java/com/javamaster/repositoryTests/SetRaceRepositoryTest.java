@@ -24,12 +24,4 @@ public class SetRaceRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
-    @Test
-    void createRaceWithAnsweAllParams() {
-        List<Races> races = setRaceRepository.createRaceWithAnsweAllParams("25", "2021", "Austria", "Bern",
-                1, 1, "202124");
-        races.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, races.size());
-    }
-
 }
