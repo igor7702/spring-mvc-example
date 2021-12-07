@@ -37,10 +37,10 @@ public class Countries {
 
     @Override
     public String toString() {
-        return "Company{" +
+        return "Countries{" +
                 "id=" + id +
-                ", code='" + code_country + '\'' +
-                ", name='" + name_country + '\'' +
+                ", code_country='" + code_country + '\'' +
+                ", name_country='" + name_country + '\'' +
                 '}';
     }
 }

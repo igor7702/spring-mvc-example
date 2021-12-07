@@ -1,12 +1,13 @@
-package com.javamaster.model;
+package com.javamaster.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
@@ -14,16 +15,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
+    @Column
+    @Getter
+    @Setter
     private String name;
+
     @OneToMany(mappedBy = "user")
     private Set<Account> accounts;
 
-    public User(long id, String name) {
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
         this.id = id;
-        this.name = name;
     }
 
-    public User(String name) {
+    public User(long id, String name) {
+        this.id = id;
         this.name = name;
     }
 

@@ -69,10 +69,13 @@ public class Races {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "Races{" +
                 "id=" + id +
-                ", name='" + week_race + '\'' +
-                ", email='" + year_race + '\'' +
+                ", week_race='" + week_race + '\'' +
+                ", year_race='" + year_race + '\'' +
+                ", country_name_race='" + country_name_race + '\'' +
+                ", city_name_race='" + city_name_race + '\'' +
+                ", id_race='" + id_race + '\'' +
                 '}';
     }
 }

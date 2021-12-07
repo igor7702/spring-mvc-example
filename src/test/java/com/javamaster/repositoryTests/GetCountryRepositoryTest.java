@@ -30,7 +30,7 @@ public class GetCountryRepositoryTest {
     void findAllCountries() {
         List<Countries> countries = getCountriesRepository.findAllCountries();
         countries.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, 1);
+        Assertions.assertEquals(4, countries.size());
     }
 
 }

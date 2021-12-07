@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import com.javamaster.repository.AccountRepository;
 import com.javamaster.repository.UserRepository;
-import com.javamaster.model.User;
+import com.javamaster.entity.User;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;

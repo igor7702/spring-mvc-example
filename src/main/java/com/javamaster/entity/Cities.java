@@ -27,7 +27,7 @@ public class Cities {
 
     @Override
     public String toString() {
-        return "Company{" +
+        return "Cities{" +
                 "id=" + id +
                 ", name='" + city_name + '\'' +
                 '}';

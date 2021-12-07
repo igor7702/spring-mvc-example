@@ -1,9 +1,7 @@
 package com.javamaster.dao;
 
 import com.javamaster.entity.Cities;
-import com.javamaster.entity.Countries;
 import com.javamaster.repository.GetCitiesRepository;
-import com.javamaster.repository.GetCountriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

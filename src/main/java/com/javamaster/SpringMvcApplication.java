@@ -1,6 +1,7 @@
 package com.javamaster;
 
-import com.javamaster.dao.GetCountryFromDB;
+import com.javamaster.dao.GetHbRacesFromDB;
+import com.javamaster.entity.Races;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import java.util.List;
 
 @SpringBootApplication
 @EnableScheduling
@@ -19,7 +21,7 @@ public class SpringMvcApplication {
     private UserService userService;
 
     @Autowired
-    private GetCountryFromDB getCountryFromDB;
+    private GetHbRacesFromDB getHbRacesFromDB;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcApplication.class, args);
@@ -33,5 +35,7 @@ public class SpringMvcApplication {
 //        userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
 //        userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
 
+        List<Races> races = getHbRacesFromDB.findAllRacesDB();
+        races.forEach(it-> System.out.println(it));
     }
 }

@@ -1,7 +1,7 @@
 package com.javamaster.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.javamaster.model.Account;
+import com.javamaster.entity.Account;
 
 import java.util.List;
 

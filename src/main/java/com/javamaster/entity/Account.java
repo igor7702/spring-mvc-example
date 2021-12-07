@@ -1,10 +1,9 @@
-package com.javamaster.model;
+package com.javamaster.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -15,7 +14,15 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
+    @Column
+    @Getter
+    @Setter
     private String name;
+
+    @Column
+    @Getter
+    @Setter
     private long amount;
 
     @ManyToOne
@@ -23,10 +30,6 @@ public class Account {
 
     public Account(long id, String name) {
         this.id = id;
-        this.name = name;
-    }
-
-    public Account(String name) {
         this.name = name;
     }
 
