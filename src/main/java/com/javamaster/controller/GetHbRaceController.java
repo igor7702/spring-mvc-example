@@ -1,7 +1,7 @@
 package com.javamaster.controller;
 
-import com.javamaster.dao.GetCityFromDB;
-import com.javamaster.entity.Cities;
+import com.javamaster.dao.GetHbRacesFromDB;
+import com.javamaster.entity.Races;
 import com.javamaster.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,18 +18,16 @@ public class GetHbRaceController {
     private UserService userService;
 
     @Autowired
-    private GetCityFromDB getCityFromDB;
+    private GetHbRacesFromDB getHbRacesFromDB;
 
     @GetMapping("/getHbRace")
     public String home(@RequestParam(required = false) Model model) {
 
-        userService.findAllByName("Smith").forEach(it-> System.out.println(it));
+        List<Races> races = getHbRacesFromDB.findAllRacesDB();
+        races.forEach(it-> System.out.println(it));
 
-        List<Cities> cities = getCityFromDB.findAllCitiesDB();
-        cities.forEach(it-> System.out.println(it));
+        // model.addAttribute("races", races);
 
-        // model.addAttribute("cities", cities);
-
-        return "getCity_page";
+        return "getHbRace_page";
     }
 }

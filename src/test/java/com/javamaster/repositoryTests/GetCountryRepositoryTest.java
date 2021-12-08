@@ -33,4 +33,12 @@ public class GetCountryRepositoryTest {
         Assertions.assertEquals(4, countries.size());
     }
 
+    @Test
+    void findWhereNameCountryParam() {
+        List<Countries> countries = getCountriesRepository.findWhereNameCountryParam("Russia");
+        countries.forEach(it-> System.out.println(it));
+        System.out.println("size = " + countries.size());
+        Assertions.assertEquals(1, countries.size());
+    }
+
 }

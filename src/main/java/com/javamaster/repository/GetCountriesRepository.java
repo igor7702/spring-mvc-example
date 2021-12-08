@@ -15,6 +15,10 @@ public interface GetCountriesRepository extends JpaRepository<Countries, Long> {
     List<Countries> findWhereCodeCountryParam(String codeCountry);
 
     @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from countries where name_country like :nameCountry")
+    List<Countries> findWhereNameCountryParam(String nameCountry);
+
+    @Transactional(readOnly = true)
     @Query(nativeQuery = true, value = "select * from countries")
     List<Countries> findAllCountries();
 }

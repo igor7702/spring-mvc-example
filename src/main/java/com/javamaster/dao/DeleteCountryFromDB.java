@@ -14,12 +14,12 @@ public class DeleteCountryFromDB {
         this.deleteCountriesRepository = deleteCountriesRepository;
     }
 
-    public void deleteCountry643() {
-        deleteCountriesRepository.deleteWhereCodeCountryIs643();
-    }
-
-    public void deleteCountryCodeParametr(String codeCountry) {
-        deleteCountriesRepository.deleteWhereCodeCountryParametr(codeCountry);
-    }
+//    public void deleteCountry643() {
+//        deleteCountriesRepository.deleteWhereCodeCountryIs643();
+//    }
+//
+//    public void deleteCountryCodeParametr(String codeCountry) {
+//        deleteCountriesRepository.deleteWhereCodeCountryParametr(codeCountry);
+//    }
 
 }
