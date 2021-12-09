@@ -35,7 +35,7 @@ public class SpringMvcApplication {
 //        userService.findWhereEmailIsGmail().forEach(it-> System.out.println(it));
 //        userService.findWhereNameStartsFromSmith().forEach(it-> System.out.println(it));
 
-        List<Races> races = getHbRacesFromDB.findAllRacesDB();
-        races.forEach(it-> System.out.println(it));
+//        List<Races> races = getHbRacesFromDB.findAllRacesDB();
+//        races.forEach(it-> System.out.println(it));
     }
 }

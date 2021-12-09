@@ -13,4 +13,7 @@ public interface GetCitiesRepository extends JpaRepository<Cities, Long> {
     @Query(value = "SELECT * FROM cities", nativeQuery = true)
     List<Cities> findAllCitiesDB();
 
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from cities where name_city like :nameCity")
+    List<Cities> findWhereNameCityParam(String nameCity);
 }

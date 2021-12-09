@@ -41,4 +41,12 @@ public class GetCountryRepositoryTest {
         Assertions.assertEquals(1, countries.size());
     }
 
+    @Test
+    void findWhereCodeCountryParamHb() {
+        List<Countries> countries = getCountriesRepository.findWhereCodeCountryParam("buh");
+        countries.forEach(it-> System.out.println(it));
+        System.out.println("size = " + countries.size());
+        Assertions.assertEquals(1, countries.size());
+    }
+
 }
