@@ -25,7 +25,7 @@ public class DeleteRaceRepositoryTest {
 
     @Test
     void deleteWithAnswerWhereIdParametr() {
-        List<Races> races = deleteRacesRepository.deleteWithAnswerWhereIdParametr(3L);
+        List<Races> races = deleteRacesRepository.deleteWithAnswerWhereIdParametr(29L);
         races.forEach(it-> System.out.println(it));
         int CountDeleted = races.size();
         Assertions.assertEquals(1, CountDeleted);

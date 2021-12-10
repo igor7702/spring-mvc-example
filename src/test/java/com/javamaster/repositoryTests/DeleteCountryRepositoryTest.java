@@ -19,7 +19,7 @@ public class DeleteCountryRepositoryTest {
 
     @Test
     void deleteCountryById() {
-        List<Countries> countries = deleteCountriesRepository.deleteWithAnswerWhereIdParametr(31L);
+        List<Countries> countries = deleteCountriesRepository.deleteWithAnswerWhereIdParametr(8L);
         countries.forEach(it-> System.out.println(it));
         int CountDeleted = countries.size();
         Assertions.assertEquals(1, CountDeleted);

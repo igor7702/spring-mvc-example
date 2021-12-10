@@ -1,7 +1,7 @@
 package com.javamaster.repositoryTests;
 
 import com.javamaster.entity.Cities;
-import com.javamaster.repository.GetCitiesRepository;
+import com.javamaster.repository.DeleteCitiesRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,23 +12,17 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
-public class GetCityRepositoryTest {
+public class DeleteCityRepositoryTest {
 
     @Autowired
-    private GetCitiesRepository getCitiesRepository;
+    private DeleteCitiesRepository deleteCitiesRepository;
 
-    @Test
-    void findAllCitiesDB() {
-        List<Cities> cities = getCitiesRepository.findAllCitiesDB();
+     @Test
+    void deleteWithAnswerWhereIdParametr() {
+        List<Cities> cities = deleteCitiesRepository.deleteWithAnswerWhereIdParametr(8L);
         cities.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, 1);
-    }
-
-    @Test
-    void findWhereNameCityParam() {
-        List<Cities> cities = getCitiesRepository.findWhereNameCityParam("Sochi");
-        cities.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, cities.size());
+        int CountDeleted = cities.size();
+        Assertions.assertEquals(1, CountDeleted);
     }
 
 }

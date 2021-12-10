@@ -15,7 +15,7 @@ public class SetHbRaceToDB {
     }
 
     public void createRaceAllParams(String weekRace, String yearRace, String nameCountry, String nameCity,
-                                    int idCountry, int idCity, String idRace) {
+                                    long idCountry, long idCity, String idRace) {
         setRaceRepository.createRaceAllParams(weekRace,yearRace, nameCountry, nameCity, idCountry,
                 idCity, idRace);
     }

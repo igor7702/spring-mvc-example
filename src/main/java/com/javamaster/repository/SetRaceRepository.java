@@ -28,8 +28,8 @@ public interface SetRaceRepository extends JpaRepository<Races, Long> {
             ":idRace)"
     )
     void createRaceAllParams(String weekRace, String yearRace,
-                              String nameCountry,String nameCity,
-                              int idCountry, int idCity, String idRace);
+                             String nameCountry, String nameCity,
+                             long idCountry, long idCity, String idRace);
 
     @Modifying
     @Transactional
