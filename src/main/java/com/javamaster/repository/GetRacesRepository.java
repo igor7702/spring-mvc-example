@@ -13,4 +13,10 @@ public interface GetRacesRepository extends JpaRepository<Races, Long> {
     @Query(value = "SELECT * FROM races", nativeQuery = true)
     List<Races> findAllRacesDB();
 
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from races where " +
+            "week_race like :numberWeek and " +
+            "year_race like :numberYear")
+    List<Races> findWhereWeekYearParam(String numberWeek, String numberYear);
+
 }

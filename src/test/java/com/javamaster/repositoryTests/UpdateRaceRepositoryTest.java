@@ -1,30 +1,25 @@
 package com.javamaster.repositoryTests;
 
-import com.javamaster.entity.Races;
-import com.javamaster.dao.GetHbRacesFromDB;
-import com.javamaster.repository.GetRacesRepository;
+import com.javamaster.repository.UpdateRacesRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 @SpringBootTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
-public class GetRaceRepositoryTest {
+public class UpdateRaceRepositoryTest {
 
     @Autowired
-    private GetHbRacesFromDB getHbRacesFromDB;
-
-    @Autowired
-    private GetRacesRepository getRacesRepository;
+    private UpdateRacesRepository updateRacesRepository;
 
     @Test
-    void findAllRacesDB() {
-        List<Races> races = getRacesRepository.findWhereWeekYearParam("49", "2021");
-        races.forEach(it-> System.out.println(it));
+    void updateWhereCodeCityParam() {
+        updateRacesRepository.updateWhereAllRacesParam(
+                1L, "40", "2021", "Hungary", "Monza",
+                5L, 5L, "202140"
+        );
         Assertions.assertEquals(1, 1);
     }
 
