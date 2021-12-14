@@ -11,28 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class CreateTeamController {
+public class DeleteTeamController {
 
     @Autowired
     private TeamsCrudRepository teamsCrudRepository;
 
-    @GetMapping("/createTeam")
+    @GetMapping("/deleteTeam")
     public String home(@RequestParam(required = false) Model model,
-                       String PermissionCodeCountry, String nameTeam) {
+                       String PermissionCodeCountry, Long idTeam, String nameTeam) {
 
-        int nameExists;
+        List<Teams> teamsList = teamsCrudRepository.deleteWithAnswerWhereIdParametr(idTeam);
 
-        List<Teams> teamsName = teamsCrudRepository.findWhereNameTeamParam(nameTeam);
-        teamsName.forEach(it-> System.out.println(it));
-        System.out.println("citiesName.size = " + teamsName.size());
-        nameExists = teamsName.size();
-
-        if(nameExists == 0){
-            teamsCrudRepository.createTeamNameParametr(nameTeam);
-        }
-
-        return "answerAddGood_page.html";
-
+        return "answerDeleteGood_page";
     }
-
 }

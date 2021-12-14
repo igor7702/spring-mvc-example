@@ -26,6 +26,13 @@ public class TeamsCrudRepositoryTest {
     }
 
     @Test
+    void findWhereIdTeamParam() {
+        List<Teams> teams = teamsCrudRepository.findWhereIdTeamParam(10L);
+        teams.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, teams.size());
+    }
+
+    @Test
     void findWhereNameTeamParam() {
         List<Teams> teams = teamsCrudRepository.findWhereNameTeamParam("Mercedes");
         teams.forEach(it-> System.out.println(it));
@@ -42,7 +49,7 @@ public class TeamsCrudRepositoryTest {
     // Delete
     @Test
     void deleteWithAnswerWhereIdParametr() {
-        List<Teams> teams = teamsCrudRepository.deleteWithAnswerWhereIdParametr(6L);
+        List<Teams> teams = teamsCrudRepository.deleteWithAnswerWhereIdParametr(13L);
         teams.forEach(it-> System.out.println(it));
         int CountDeleted = teams.size();
         Assertions.assertEquals(1, CountDeleted);

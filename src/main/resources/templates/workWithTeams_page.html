@@ -8,17 +8,25 @@
 <h1>Work with Teams table (Spring Data)!!!!!!</h1>
 
 <!--// Get-->
-<!--<form action="/createTeam" method="get">-->
-<!--    <input name="specialCode" placeholder="Input special code to change the race:" type="text">-->
-<!--    <input name="nameTeam" placeholder="Input name of the Team:" type="text">-->
-<!--    <input type="submit" value="Add the race to the DataBase Spring Data">-->
-<!--</form>-->
+<form action="/getTeams" method="get">
+    <input name="specialCode" placeholder="Input special code to change the race:" type="text">
+    <input name="nameTeam" placeholder="Input name of the Team:" type="text">
+    <input type="submit" value="Get the teams from the DataBase Spring Data">
+</form>
 
 <!--// Create-->
 <form action="/createTeam" method="get">
     <input name="specialCode" placeholder="Input special code for this operation:" type="text">
     <input name="nameTeam" placeholder="Input name of the Team:" type="text">
     <input type="submit" value="Add the team DataBase Spring Data">
+</form>
+
+<!--// Delete-->
+<form action="/deleteTeam" method="get">
+    <input name="specialCode" placeholder="Input special code for this operation:" type="text">
+    <input name="nameTeam" placeholder="Input name of the Team:" type="text">
+    <input name="idTeam" placeholder="Input id of the Team:" type="text">
+    <input type="submit" value="Delete the team from the DataBase Spring Data">
 </form>
 
 </body>
