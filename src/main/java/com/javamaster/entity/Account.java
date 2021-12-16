@@ -25,9 +25,6 @@ public class Account {
     @Setter
     private long amount;
 
-    @ManyToOne
-    private User user;
-
     public Account(long id, String name) {
         this.id = id;
         this.name = name;

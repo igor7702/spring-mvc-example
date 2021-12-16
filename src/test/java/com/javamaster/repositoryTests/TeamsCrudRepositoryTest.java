@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -46,6 +49,12 @@ public class TeamsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void createTeam4Parametr() {
+        teamsCrudRepository.createTeam4Parametr("Mercedes", 2022, "2022_Mercedes");
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteWithAnswerWhereIdParametr() {
@@ -56,5 +65,10 @@ public class TeamsCrudRepositoryTest {
     }
 
     // Update
+    @Test
+    void updateWhereYearAndCodeTeamParam() {
+        teamsCrudRepository.updateWhereYearAndCodeTeamParam(2021, "2021_Ferrari", 4L);
+        Assertions.assertEquals(1, 1);
+    }
 
 }

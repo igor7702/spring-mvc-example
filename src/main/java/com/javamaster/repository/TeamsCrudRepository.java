@@ -29,6 +29,12 @@ public interface TeamsCrudRepository extends JpaRepository<Teams, Long> {
     @Query(nativeQuery = true, value = "insert into teams (name_teams) values (:nameTeam)")
     void createTeamNameParametr(String nameTeam);
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into teams (name_teams, year_teams, code_teams) " +
+            "values (:nameTeam, :yearTeam, :codeTeam)")
+    void createTeam4Parametr(String nameTeam, int yearTeam, String codeTeam);
+
     // Delete
     @Modifying
     @Transactional
@@ -46,4 +52,8 @@ public interface TeamsCrudRepository extends JpaRepository<Teams, Long> {
     @Query(nativeQuery = true, value = "update teams set name_teams=:nameTeam where id=:idTeam")
     void updateWhereIdAndNameTeamParam(String nameTeam, Long idTeam);
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update teams set year_teams=:yearTeam, code_teams=:codeTeam where id=:idTeam")
+    void updateWhereYearAndCodeTeamParam(int yearTeam, String codeTeam, Long idTeam);
 }

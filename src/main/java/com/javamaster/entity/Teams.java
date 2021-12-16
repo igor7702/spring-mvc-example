@@ -18,6 +18,16 @@ public class Teams {
     @Setter
     private String name_teams;
 
+    @Column
+    @Getter
+    @Setter
+    private int year_teams;
+
+    @Column
+    @Getter
+    @Setter
+    private int code_teams;
+
     public Long getId() {
         return id;
     }
@@ -30,6 +40,8 @@ public class Teams {
         return "Teams{" +
                 "id=" + id +
                 ", name='" + name_teams + '\'' +
+                ", year='" + year_teams + '\'' +
+                ", code='" + code_teams + '\'' +
                 '}';
     }
 }

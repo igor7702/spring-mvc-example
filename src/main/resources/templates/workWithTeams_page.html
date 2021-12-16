@@ -18,6 +18,8 @@
 <form action="/createTeam" method="get">
     <input name="specialCode" placeholder="Input special code for this operation:" type="text">
     <input name="nameTeam" placeholder="Input name of the Team:" type="text">
+    <input name="yearTeam" placeholder="Input year of the Team:" type="number">
+    <input name="codeTeam" placeholder="Input code of the Team:" type="text">
     <input type="submit" value="Add the team DataBase Spring Data">
 </form>
 
@@ -27,6 +29,22 @@
     <input name="nameTeam" placeholder="Input name of the Team:" type="text">
     <input name="idTeam" placeholder="Input id of the Team:" type="text">
     <input type="submit" value="Delete the team from the DataBase Spring Data">
+</form>
+
+<!--// Update-->
+<form action="/updateTeam" method="get">
+    <input name="specialCode" placeholder="Input special code for this operation:" type="text">
+    <input name="nameTeam" placeholder="Input name of the Team:" type="text">
+    <input name="idTeam" placeholder="Input id of the Team:" type="number">
+    <input type="submit" value="Update the team from the DataBase Spring Data">
+</form>
+
+<form action="/updateYearCodeTeam" method="get">
+    <input name="specialCode" placeholder="Input special code for this operation:" type="text">
+    <input name="yearTeam" placeholder="Input year of the Team:" type="number">
+    <input name="codeTeam" placeholder="Input code of the Team:" type="text">
+    <input name="idTeam" placeholder="Input id of the Team:" type="number">
+    <input type="submit" value="Update the team from the DataBase Spring Data">
 </form>
 
 </body>

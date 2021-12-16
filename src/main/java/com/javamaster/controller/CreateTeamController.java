@@ -18,7 +18,7 @@ public class CreateTeamController {
 
     @GetMapping("/createTeam")
     public String home(@RequestParam(required = false) Model model,
-                       String PermissionCodeCountry, String nameTeam) {
+                       String PermissionCodeCountry, String nameTeam, int yearTeam, String codeTeam) {
 
         int nameExists;
 
@@ -27,9 +27,7 @@ public class CreateTeamController {
         System.out.println("citiesName.size = " + teamsName.size());
         nameExists = teamsName.size();
 
-        if(nameExists == 0){
-            teamsCrudRepository.createTeamNameParametr(nameTeam);
-        }
+        teamsCrudRepository.createTeam4Parametr(nameTeam, yearTeam, codeTeam);
 
         return "answerAddGood_page.html";
 

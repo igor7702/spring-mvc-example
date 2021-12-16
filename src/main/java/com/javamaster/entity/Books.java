@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -33,23 +34,11 @@ public class Books {
     @Getter
     private String author;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id")
-    private Books books;
-
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
-    }
-
-
-    public Books getBooks() {
-        return books;
-    }
-    public void setBooks(Books books) {
-        this.books = books;
     }
 
     @Override
