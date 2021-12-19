@@ -39,6 +39,12 @@ public interface TeamsCrudRepository extends JpaRepository<Teams, Long> {
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "delete from teams where id=:id")
+    void deleteVoidWhereIdParametr(long id);
+
+    // Delete
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "delete from teams where id=:id")
     List<Teams> deleteWhereIdParametr(long id);
 
     @Modifying
