@@ -16,11 +16,11 @@ public interface PilotsCrudRepository extends JpaRepository<Pilots, Long> {
     List<Pilots> findAllPilotsDB();
 
     @Transactional(readOnly = true)
-    @Query(nativeQuery = true, value = "select * from pilots where name_pilots like :namePilots")
+    @Query(nativeQuery = true, value = "select * from pilots where name_pilots like :namePilot")
     List<Pilots> findWhereNamePilotParam(String namePilot);
 
     @Transactional(readOnly = true)
-    @Query(nativeQuery = true, value = "select * from pilots where id=:idPilots")
+    @Query(nativeQuery = true, value = "select * from pilots where id=:idPilot")
     List<Pilots> findWhereIdPilotParam(Long idPilot);
 
     // Create
@@ -33,33 +33,33 @@ public interface PilotsCrudRepository extends JpaRepository<Pilots, Long> {
     @Transactional
     @Query(nativeQuery = true, value = "insert into pilots (name_pilots, code_pilots) " +
             "values (:namePilot, :codePilot)")
-    void createTeam2Parametr(String namePilot, String codePilot);
+    void createPilotParametr(String namePilot, String codePilot);
 
     // Delete
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "delete from pilots where id=:id")
     void deleteVoidWhereIdParametr(long id);
-
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "delete from pilots where id=:id")
-    List<Pilots> deleteWhereIdParametr(long id);
-
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "delete from pilots where id=:id is true Returning *")
-    List<Pilots> deleteWithAnswerWhereIdParametr(long id);
-
-    // Update
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "update teams set name_teams=:nameTeam where id=:idTeam")
-    void updateWhereIdAndNameTeamParam(String nameTeam, Long idTeam);
-
-    @Modifying
-    @Transactional
-    @Query(nativeQuery = true, value = "update pilots set name_pilots=:namePilot, " +
-            "code_pilots=:codePilots where id=:idPilot")
-    void updateWhereNameAndCodeTeamParam(String namePilot, String codePilot, Long idPilot);
+//
+//    @Modifying
+//    @Transactional
+//    @Query(nativeQuery = true, value = "delete from pilots where id=:id")
+//    List<Pilots> deleteWhereIdParametr(long id);
+//
+//    @Modifying
+//    @Transactional
+//    @Query(nativeQuery = true, value = "delete from pilots where id=:id is true Returning *")
+//    List<Pilots> deleteWithAnswerWhereIdParametr(long id);
+//
+//    // Update
+//    @Modifying
+//    @Transactional
+//    @Query(nativeQuery = true, value = "update teams set name_teams=:nameTeam where id=:idTeam")
+//    void updateWhereIdAndNameTeamParam(String nameTeam, Long idTeam);
+//
+//    @Modifying
+//    @Transactional
+//    @Query(nativeQuery = true, value = "update pilots set name_pilots=:namePilot, " +
+//            "code_pilots=:codePilots where id=:idPilot")
+//    void updateWhereNameAndCodeTeamParam(String namePilot, String codePilot, Long idPilot);
 }

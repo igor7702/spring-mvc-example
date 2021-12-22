@@ -47,18 +47,29 @@
     <input type="submit" value="Update the team from the DataBase Spring Data">
 </form>
 
-<p />p
 Work with Pilots table!!!
-<p />p
 
 <!--CreatePilots-->
+<form action="/createPilot" method="get">
+    <input name="specialCode" placeholder="Input special code to create the pilot:" type="text">
+    <input name="namePilot" placeholder="Input name of the Pilot:" type="text">
+    <input type="submit" value="Create the Pilot to the DataBase Spring Data">
+</form>
+
 <!--DeletePilots-->
+<form action="/deletePilot" method="get">
+    <input name="specialCode" placeholder="Input special code to delete the pilot:" type="text">
+    <input name="idPilot" placeholder="Input id of the Pilot:" type="text">
+    <input type="submit" value="Delete the Pilot to the DataBase Spring Data">
+</form>
+
 <!--GetPilots-->
 <form action="/getPilots" method="get">
     <input name="specialCode" placeholder="Input special code to change the race:" type="text">
     <input name="namePilot" placeholder="Input name of the Pilot:" type="text">
     <input type="submit" value="Get the Pilots from the DataBase Spring Data">
 </form>
+
 <!--UpdatePilots-->
 
 </body>

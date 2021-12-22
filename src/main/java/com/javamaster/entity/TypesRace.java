@@ -6,8 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pilots")
-public class Pilots {
+@Table(name = "typesrace")
+public class TypesRace {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,7 @@ public class Pilots {
     @Column
     @Getter
     @Setter
-    private String name_pilots;
-
-    @Column
-    @Getter
-    @Setter
-    private String code_pilots;
-
+    private String nametypesrace;
 
     public Long getId() {
         return id;
@@ -33,10 +27,9 @@ public class Pilots {
 
     @Override
     public String toString() {
-        return "Pilots{" +
+        return "TypesRace{" +
                 "id=" + id +
-                ", name='" + name_pilots + '\'' +
-                ", code='" + code_pilots + '\'' +
+                ", name='" + nametypesrace + '\'' +
                 '}';
     }
 }

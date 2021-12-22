@@ -1,6 +1,7 @@
 package com.javamaster.repositoryTests;
 
-import com.javamaster.entity.Teams;
+import com.javamaster.entity.Pilots;
+import com.javamaster.repository.PilotsCrudRepository;
 import com.javamaster.repository.TeamsCrudRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,62 +17,56 @@ public class PilotsCrudRepositoryTest {
 
     @Autowired
     private TeamsCrudRepository teamsCrudRepository;
+    @Autowired
+    private PilotsCrudRepository pilotsCrudRepository;
 
     // Get
     @Test
-    void findAllTeamsDB() {
-        List<Teams> teams = teamsCrudRepository.findAllTeamsDB();
-        teams.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(15, teams.size());
+    void findAllPilotsDB() {
+        List<Pilots> pilots = pilotsCrudRepository.findAllPilotsDB();
+        pilots.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(20, pilots.size());
     }
 
     @Test
     void findWhereIdTeamParam() {
-        List<Teams> teams = teamsCrudRepository.findWhereIdTeamParam(25L);
-        teams.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, teams.size());
+        List<Pilots> pilots = pilotsCrudRepository.findWhereIdPilotParam(10L);
+        pilots.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, pilots.size());
     }
 
     @Test
     void findWhereNameTeamParam() {
-        List<Teams> teams = teamsCrudRepository.findWhereNameTeamParam("Mercedes");
-        teams.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, teams.size());
+        List<Pilots> pilots = pilotsCrudRepository.findWhereNamePilotParam("Nicholas Latifi");
+        pilots.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, pilots.size());
     }
 
     // Create
     @Test
-    void createTeamsAllParams() {
-        teamsCrudRepository.createTeamNameParametr("Mclaren mercedes");
+    void createPilotNameParametr() {
+        pilotsCrudRepository.createPilotNameParametr("Lewis Hamilton");
         Assertions.assertEquals(1, 1);
     }
 
     @Test
-    void createTeam4Parametr() {
-        teamsCrudRepository.createTeam4Parametr("Mercedes", 2022, "2022_Mercedes");
+    void createTeam2Parametr() {
+        pilotsCrudRepository.createPilotParametr("Lewis Hamilton", "Hamilton");
         Assertions.assertEquals(1, 1);
     }
 
     // Delete
     @Test
-    void deleteWithAnswerWhereIdParametr() {
-        List<Teams> teams = teamsCrudRepository.deleteWhereIdParametr(25L);
-        teams.forEach(it-> System.out.println(it));
-        int CountDeleted = teams.size();
-        Assertions.assertEquals(1, CountDeleted);
-    }
-
-    @Test
     void deleteVoidWhereIdParametr() {
-        teamsCrudRepository.deleteVoidWhereIdParametr(25L);
+        pilotsCrudRepository.deleteVoidWhereIdParametr(3L);
         Assertions.assertEquals(1, 1);
     }
 
-    // Update
-    @Test
-    void updateWhereYearAndCodeTeamParam() {
-        teamsCrudRepository.updateWhereYearAndCodeTeamParam(2021, "2021_Ferrari", 4L);
-        Assertions.assertEquals(1, 1);
-    }
+//    // Update
+//    @Test
+//    void updateWhereYearAndCodeTeamParam() {
+//        teamsCrudRepository.updateWhereYearAndCodeTeamParam(2021, "2021_Ferrari", 4L);
+//        Assertions.assertEquals(1, 1);
+//    }
 
 }
