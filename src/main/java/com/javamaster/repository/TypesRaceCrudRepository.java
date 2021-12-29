@@ -26,34 +26,24 @@ public interface TypesRaceCrudRepository extends JpaRepository<TypesRace, Long> 
     // Create
     @Modifying
     @Transactional
-    @Query(nativeQuery = true, value = "insert into typesrace (name_typesname) values (:nameTyperace)")
-    void createTypeRaceNameParametr(String nameTyperace);
+    @Query(nativeQuery = true, value = "insert into typesrace (nametypesrace) values (:nameTypeRace)")
+    void createTypeRaceNameParametr(String nameTypeRace);
 
     // Delete
     @Modifying
     @Transactional
-    @Query(nativeQuery = true, value = "delete from teams where id=:id")
+    @Query(nativeQuery = true, value = "delete from typesrace where id=:id")
     void deleteVoidWhereIdParametr(long id);
-//
-//    // Delete
-//    @Modifying
-//    @Transactional
-//    @Query(nativeQuery = true, value = "delete from teams where id=:id")
-//    List<Teams> deleteWhereIdParametr(long id);
-//
-//    @Modifying
-//    @Transactional
-//    @Query(nativeQuery = true, value = "delete from teams where id=:id is true Returning *")
-//    List<Teams> deleteWithAnswerWhereIdParametr(long id);
-//
-//    // Update
-//    @Modifying
-//    @Transactional
-//    @Query(nativeQuery = true, value = "update teams set name_teams=:nameTeam where id=:idTeam")
-//    void updateWhereIdAndNameTeamParam(String nameTeam, Long idTeam);
-//
-//    @Modifying
-//    @Transactional
-//    @Query(nativeQuery = true, value = "update teams set year_teams=:yearTeam, code_teams=:codeTeam where id=:idTeam")
-//    void updateWhereYearAndCodeTeamParam(int yearTeam, String codeTeam, Long idTeam);
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "delete from typesrace where id=:id is true Returning *")
+    List<TypesRace> deleteWithAnswerWhereIdParametr(long id);
+
+    // Update
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update typesrace set name_typesrace=:nameTypeRace where id=:idTypeRace")
+    void updateWhereIdAndNameTypeRaceParam(String nameTypeRace, Long idTypeRace);
+
 }
