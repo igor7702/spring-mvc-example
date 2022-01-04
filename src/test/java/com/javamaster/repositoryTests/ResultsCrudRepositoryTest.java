@@ -1,8 +1,7 @@
 package com.javamaster.repositoryTests;
 
-import com.javamaster.entity.Pilots;
-import com.javamaster.repository.PilotsCrudRepository;
-import com.javamaster.repository.TeamsCrudRepository;
+import com.javamaster.entity.Results;
+import com.javamaster.repository.ResultsCrudRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,49 +15,47 @@ import java.util.List;
 public class ResultsCrudRepositoryTest {
 
     @Autowired
-    private TeamsCrudRepository teamsCrudRepository;
-    @Autowired
-    private PilotsCrudRepository pilotsCrudRepository;
+    private ResultsCrudRepository resultsCrudRepository;
 
     // Get
     @Test
-    void findAllPilotsDB() {
-        List<Pilots> pilots = pilotsCrudRepository.findAllPilotsDB();
-        pilots.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(20, pilots.size());
+    void findAllResultsDB() {
+        List<Results> results = resultsCrudRepository.findAllResultsDB();
+        results.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(20, results.size());
     }
 
     @Test
-    void findWhereIdTeamParam() {
-        List<Pilots> pilots = pilotsCrudRepository.findWhereIdPilotParam(10L);
-        pilots.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, pilots.size());
+    void findWhereIdResultsParam() {
+        List<Results> results = resultsCrudRepository.findWhereIdResultParam(10L);
+        results.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, results.size());
     }
 
     @Test
     void findWhereNameTeamParam() {
-        List<Pilots> pilots = pilotsCrudRepository.findWhereNamePilotParam("Nicholas Latifi");
+        List<Results> pilots = resultsCrudRepository.findWhereRaceNameParam("202142");
         pilots.forEach(it-> System.out.println(it));
         Assertions.assertEquals(1, pilots.size());
     }
 
-    // Create
-    @Test
-    void createPilotNameParametr() {
-        pilotsCrudRepository.createPilotNameParametr("Lewis Hamilton");
-        Assertions.assertEquals(1, 1);
-    }
-
-    @Test
-    void createTeam2Parametr() {
-        pilotsCrudRepository.createPilotParametr("Lewis Hamilton", "Hamilton");
-        Assertions.assertEquals(1, 1);
-    }
+//    // Create
+//    @Test
+//    void createPilotNameParametr() {
+//        pilotsCrudRepository.createPilotNameParametr("Lewis Hamilton");
+//        Assertions.assertEquals(1, 1);
+//    }
+//
+//    @Test
+//    void createTeam2Parametr() {
+//        pilotsCrudRepository.createPilotParametr("Lewis Hamilton", "Hamilton");
+//        Assertions.assertEquals(1, 1);
+//    }
 
     // Delete
     @Test
     void deleteVoidWhereIdParametr() {
-        pilotsCrudRepository.deleteVoidWhereIdParametr(3L);
+        resultsCrudRepository.deleteVoidWhereIdParametr(3L);
         Assertions.assertEquals(1, 1);
     }
 

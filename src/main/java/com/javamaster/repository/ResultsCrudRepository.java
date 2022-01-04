@@ -61,9 +61,21 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             ":pointsTeamAll" +
             ")"
     )
-    void createResultsAllParams(String weekRace, String yearRace,
-                             String nameCountry, String nameCity,
-                             long idCountry, long idCity, String idRace);
+    void createResultsAllParams(int raceId,
+                                String raceName,
+                                int typeRaceId,
+                                String typeRaceName,
+                                int teamId,
+                                String teamName,
+                                int lap,
+                                boolean bestlap,
+                                int startGreed,
+                                int endGreed,
+                                int pointsPilot,
+                                int pointsPilotAll,
+                                int pointsTeam,
+                                int pointsTeamAll
+    );
 
     // Delete
     @Modifying

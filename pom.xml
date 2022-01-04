@@ -53,6 +53,13 @@
             <version>1.14.3</version>
         </dependency>
 
+        <!-- https://jarcasting.com/artifacts/org.apache.poi/poi/ -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+
 <!--        <dependency>-->
 <!--            <groupId>com.h2database</groupId>-->
 <!--            <artifactId>h2</artifactId>-->
