@@ -2,10 +2,11 @@ package com.javamaster.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 
+import com.javamaster.entity.Teams;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -13,12 +14,18 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 
+import com.javamaster.repository.TeamsCrudRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ExcellReadResultsController {
+
+    @Autowired
+    private TeamsCrudRepository teamsCrudRepository;
 
     @GetMapping("/ExcellReadResultsPasing")
     public String home(@RequestParam(required = false)
@@ -36,8 +43,7 @@ public class ExcellReadResultsController {
         double pitStops = 0;
         String crash = "";
         double points = 0;
-        String country = "";
-        double year = 0;
+        double country = 0;
 
         // 1 - позиция по завершению гонки
         // 2 - номер гонщика
@@ -52,7 +58,6 @@ public class ExcellReadResultsController {
         // 11 - сход
         // 12 - очки
         // 13 - страна
-        // 14 - год
 
         // Read XSL file
         FileInputStream inputStream = new FileInputStream(new File("C:/Books/info/F1ExampleXLS_OneRow.xls"));
@@ -84,8 +89,7 @@ public class ExcellReadResultsController {
             pitStops = 0;
             crash = "";
             points = 0;
-            country = "";
-            year = 0;
+            country = 0;
 
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
@@ -147,8 +151,8 @@ public class ExcellReadResultsController {
                             case 12:
                                 points = cell.getNumericCellValue();
                                 break;
-                            case 14:
-                                year = cell.getNumericCellValue();
+                            case 13:
+                                country = cell.getNumericCellValue();
                                 break;
                         }
                         break;
@@ -180,9 +184,6 @@ public class ExcellReadResultsController {
                             case 11:
                                 crash = cell.getStringCellValue();
                                 break;
-                            case 13:
-                                country = cell.getStringCellValue();
-                                break;
                         }
                         break;
                     case ERROR:
@@ -199,12 +200,18 @@ public class ExcellReadResultsController {
 
         // Для базы данных
         // Определить все поля для базы result
+        String raceName = "" + ((int) country); // определить по номеру года и стране
         int raceId = 0; // определить по номеру года и стране
-        String raceName = ""; // определить по номеру года и стране
-        int typeRaceId = 0; // Определить как Main
+        int typeRaceId = 1; // Определить как Main
         String typeRaceName = ""; // Определить как Main
+
+        // team
+        int yearTeam = Integer.parseInt (raceName.substring(0, 4));
+        String teamNameForQuery = team.trim();
+        List<Teams> teamFromDB = teamsCrudRepository.findWhereNameTeamAndYearParam(yearTeam, teamNameForQuery);  // Запросом получить из БД
+        //Teams teamName = teamFromDB.get(1);
         int teamId = 0;
-        String teamName = "";
+
         int lap = (int) Math.round(laps);
         boolean bestlap = false;
         int startGreed = 0;

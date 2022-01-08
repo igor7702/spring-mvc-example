@@ -26,7 +26,7 @@ public class Teams {
     @Column
     @Getter
     @Setter
-    private int code_teams;
+    private String code_teams;
 
     public Long getId() {
         return id;

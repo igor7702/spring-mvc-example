@@ -16,12 +16,20 @@ public interface TeamsCrudRepository extends JpaRepository<Teams, Long> {
     List<Teams> findAllTeamsDB();
 
     @Transactional(readOnly = true)
-    @Query(nativeQuery = true, value = "select * from teams where name_teams like :nameTeam")
+    @Query(nativeQuery = true, value = "select * from teams where name_teams like %:nameTeam%")
     List<Teams> findWhereNameTeamParam(String nameTeam);
+
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from teams where name_teams = :nameTeam and year_teams = :yearTeam")
+    List<Teams> findWhereNameTeamAndYearParam(int yearTeam, String nameTeam);
 
     @Transactional(readOnly = true)
     @Query(nativeQuery = true, value = "select * from teams where id=:idTeam")
     List<Teams> findWhereIdTeamParam(Long idTeam);
+
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from teams where name_teams = :nameTeam")
+    List<Teams> findWhereNameTeamAndYearParam(String nameTeam);
 
     // Create
     @Modifying

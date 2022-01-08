@@ -7,9 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +26,13 @@ public class TeamsCrudRepositoryTest {
     }
 
     @Test
+    void findWhereNameTeamAndYearParam() {
+        List<Teams> teams = teamsCrudRepository.findWhereNameTeamAndYearParam(2021, "Mercedes");
+        teams.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, teams.size());
+    }
+
+    @Test
     void findWhereIdTeamParam() {
         List<Teams> teams = teamsCrudRepository.findWhereIdTeamParam(25L);
         teams.forEach(it-> System.out.println(it));
@@ -37,9 +41,9 @@ public class TeamsCrudRepositoryTest {
 
     @Test
     void findWhereNameTeamParam() {
-        List<Teams> teams = teamsCrudRepository.findWhereNameTeamParam("Mercedes");
+        List<Teams> teams = teamsCrudRepository.findWhereNameTeamParam("mercedes");
         teams.forEach(it-> System.out.println(it));
-        Assertions.assertEquals(1, teams.size());
+        Assertions.assertEquals(3, teams.size());
     }
 
     // Create
