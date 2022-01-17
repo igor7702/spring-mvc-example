@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 
-import com.javamaster.entity.Teams;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -14,7 +12,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 
-import com.javamaster.repository.TeamsCrudRepository;
+import com.javamaster.repository.XlsLoadResults1Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ExcellReadResultsController {
 
     @Autowired
-    private TeamsCrudRepository teamsCrudRepository;
+    private XlsLoadResults1Repository xlsLoadResults1Repository;
 
     @GetMapping("/ExcellReadResultsPasing")
     public String home(@RequestParam(required = false)
@@ -60,7 +58,7 @@ public class ExcellReadResultsController {
         // 13 - страна
 
         // Read XSL file
-        FileInputStream inputStream = new FileInputStream(new File("C:/Books/info/F1ExampleXLS_OneRow.xls"));
+        FileInputStream inputStream = new FileInputStream(new File("C:/Books/info/F1ExampleXLSBig.xls"));
 
         // Get the workbook instance for XLS file
         HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
@@ -77,6 +75,7 @@ public class ExcellReadResultsController {
             Iterator<Cell> cellIterator = row.cellIterator();
 
             // Инициализация полей в начальное значение
+            ourIndex = 0;
             position = 0;
             numberPilot = 0;
             namePilot = "";
@@ -196,21 +195,39 @@ public class ExcellReadResultsController {
 
             }
             System.out.println("");
+
+            // Для базы данных
+            // Заполнить первичную таблицу
+            xlsLoadResults1Repository.createAllParametr(
+                    position,
+                    numberPilot,
+                    namePilot,
+                    team,
+                    motor,
+                    laps,
+                    raceTime,
+                    lead,
+                    gap,
+                    pitStops,
+                    crash,
+                    points,
+                    country
+            );
+
         }
 
-        // Для базы данных
-        // Определить все поля для базы result
-        String raceName = "" + ((int) country); // определить по номеру года и стране
-        int raceId = 0; // определить по номеру года и стране
-        int typeRaceId = 1; // Определить как Main
-        String typeRaceName = ""; // Определить как Main
+//        // Определить все поля для базы result
+//        String raceName = "" + ((int) country); // определить по номеру года и стране
+//        int raceId = 0; // определить по номеру года и стране
+//        int typeRaceId = 1; // Определить как Main
+//        String typeRaceName = ""; // Определить как Main
 
-        // team
-        int yearTeam = Integer.parseInt (raceName.substring(0, 4));
-        String teamNameForQuery = team.trim();
-        List<Teams> teamFromDB = teamsCrudRepository.findWhereNameTeamAndYearParam(yearTeam, teamNameForQuery);  // Запросом получить из БД
-        //Teams teamName = teamFromDB.get(1);
-        int teamId = 0;
+//        // team
+//        int yearTeam = Integer.parseInt (raceName.substring(0, 4));
+//        String teamNameForQuery = team.trim();
+//        List<Teams> teamFromDB = teamsCrudRepository.findWhereNameTeamAndYearParam(yearTeam, teamNameForQuery);  // Запросом получить из БД
+//        //Teams teamName = teamFromDB.get(1);
+//        int teamId = 0;
 
         int lap = (int) Math.round(laps);
         boolean bestlap = false;
