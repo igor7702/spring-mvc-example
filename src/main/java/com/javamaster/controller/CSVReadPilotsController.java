@@ -1,6 +1,6 @@
 package com.javamaster.controller;
 
-import com.javamaster.repository.XlsLoadResults1Repository;
+import com.javamaster.repository.CsvLoadPilots1Repository;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,9 +21,9 @@ import java.util.Iterator;
 public class CSVReadPilotsController {
 
     @Autowired
-    private XlsLoadResults1Repository xlsLoadResults1Repository;
+    private CsvLoadPilots1Repository csvLoadPilots1Repository;
 
-    @GetMapping("/ExcellReadResultsPasing")
+    @GetMapping("/CsvReadResultsPasing")
     public String home(@RequestParam(required = false)
                        String PermissionCodeCountry, int numberStartRow, int numberEndRow) throws IOException {
         int ourIndex = 0;
