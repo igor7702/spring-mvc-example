@@ -23,6 +23,10 @@ public class Pilots {
     @Setter
     private String code_pilots;
 
+    @Column
+    @Getter
+    @Setter
+    private String namerus;
 
     public Long getId() {
         return id;
@@ -37,6 +41,7 @@ public class Pilots {
                 "id=" + id +
                 ", name='" + name_pilots + '\'' +
                 ", code='" + code_pilots + '\'' +
+                ", namerus='" + namerus + '\'' +
                 '}';
     }
 }
