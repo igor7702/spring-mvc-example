@@ -23,6 +23,10 @@ public interface PilotsCrudRepository extends JpaRepository<Pilots, Long> {
     @Query(nativeQuery = true, value = "select * from pilots where id=:idPilot")
     List<Pilots> findWhereIdPilotParam(Long idPilot);
 
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from pilots where namerus is null")
+    List<Pilots> findWhereNameRusNull();
+
     // Create
     @Modifying
     @Transactional
@@ -50,13 +54,13 @@ public interface PilotsCrudRepository extends JpaRepository<Pilots, Long> {
 //    @Transactional
 //    @Query(nativeQuery = true, value = "delete from pilots where id=:id is true Returning *")
 //    List<Pilots> deleteWithAnswerWhereIdParametr(long id);
-//
-//    // Update
-//    @Modifying
-//    @Transactional
-//    @Query(nativeQuery = true, value = "update teams set name_teams=:nameTeam where id=:idTeam")
-//    void updateWhereIdAndNameTeamParam(String nameTeam, Long idTeam);
-//
+
+    // Update
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update pilots set namerus=:nameRus where id=:idPilot")
+    void updateWhereNameRusAndIdParam(String nameRus, Long idPilot);
+
 //    @Modifying
 //    @Transactional
 //    @Query(nativeQuery = true, value = "update pilots set name_pilots=:namePilot, " +

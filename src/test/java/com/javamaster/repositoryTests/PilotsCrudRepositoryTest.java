@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -62,11 +65,11 @@ public class PilotsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
-//    // Update
-//    @Test
-//    void updateWhereYearAndCodeTeamParam() {
-//        teamsCrudRepository.updateWhereYearAndCodeTeamParam(2021, "2021_Ferrari", 4L);
-//        Assertions.assertEquals(1, 1);
-//    }
+    // Update
+    @Test
+    void updateWhereNameRusAndIdParam() {
+        pilotsCrudRepository.updateWhereNameRusAndIdParam("Льюис Хэмилтон", 1L);
+        Assertions.assertEquals(1, 1);
+    }
 
 }

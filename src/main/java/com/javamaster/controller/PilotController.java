@@ -1,6 +1,8 @@
 package com.javamaster.controller;
 
+import com.javamaster.entity.CsvLoadPilots1;
 import com.javamaster.entity.Pilots;
+import com.javamaster.repository.CsvLoadPilots1Repository;
 import com.javamaster.repository.PilotsCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ public class PilotController {
 
     @Autowired
     private PilotsCrudRepository pilotsCrudRepository;
+
+    @Autowired
+    private CsvLoadPilots1Repository csvLoadPilots1Repository;
 
     // Create
     @GetMapping("/createPilot")
@@ -55,5 +60,39 @@ public class PilotController {
     }
 
     // Update
-    // Get
+    @GetMapping("/UpdatePilotNameRus")
+    public String UpdatePilotNameRus(@RequestParam(required = false) Model model,
+                       String PermissionCodeCountry) {
+
+        List<Pilots> pilots = pilotsCrudRepository.findWhereNameRusNull();
+        pilots.forEach(it-> System.out.println(it.getCode_pilots()));
+
+        if (pilots.size() != 0){
+
+            for (int i = 0; i < pilots.size(); i++) {
+                Pilots element = pilots.get(i);
+                String codePilot = element.getCode_pilots();
+                System.out.println(element.getCode_pilots());
+
+                // по коду пилота, получить русское имя
+                List<CsvLoadPilots1> csvLoadPilots1s = csvLoadPilots1Repository.findWhereCodePilotEng(codePilot);
+
+                if (csvLoadPilots1s.size() != 0){
+                    String namePilotRus = csvLoadPilots1s.get(0).getNamepilotrus();
+
+                    // по id пилота и русского имени обновить тб pilots
+                    pilotsCrudRepository.updateWhereNameRusAndIdParam(namePilotRus, element.getId());
+                }
+            }
+        }
+
+        // Из таблицы Pilots получить все записи, где nameRus=Null
+        // Получить codePilot
+        // по codePilot получить запсиь из тб csvpilots
+        // получть id записи
+        // обновить таблицу pilots колонка nameRus
+
+        return "answerAddGood_page";
+    }
+
 }

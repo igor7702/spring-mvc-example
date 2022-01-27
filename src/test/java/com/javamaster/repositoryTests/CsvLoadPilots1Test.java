@@ -14,11 +14,22 @@ public class CsvLoadPilots1Test {
     @Autowired
     private CsvLoadPilots1Repository csvLoadPilots1Repository;
 
+    // Create
     @Test
     void createAllParametr() {
         csvLoadPilots1Repository.createAllParametr(
                 "Люис Хэмильтон",
                 "Hamilton"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+     // Update
+    @Test
+    void updateAllParametr() {
+        csvLoadPilots1Repository.updateCodePilotByIdParam(
+                "Russell",
+                15
         );
         Assertions.assertEquals(1, 1);
     }
