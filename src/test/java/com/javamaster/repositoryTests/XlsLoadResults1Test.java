@@ -1,5 +1,6 @@
 package com.javamaster.repositoryTests;
 
+import com.javamaster.entity.Cities;
 import com.javamaster.entity.XlsLoadResults1;
 import com.javamaster.repository.XlsLoadResults1Repository;
 import org.junit.jupiter.api.Assertions;
@@ -7,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +20,20 @@ public class XlsLoadResults1Test {
     @Autowired
     private XlsLoadResults1Repository xlsLoadResults1Repository;
 
+    // Get
+//    // Get
+//    @Transactional(readOnly = true)
+//    @Query(value = "SELECT * FROM XlsLoadResults1", nativeQuery = true)
+//    List<XlsLoadResults1> findAllXlsLoadResults1DB();
+
+    @Test
+    void findAllXlsLoadResults1DB() {
+        List<XlsLoadResults1> results = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        results.forEach(it2-> System.out.println(it2));
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Create
     @Test
     void createAllParametr() {
         xlsLoadResults1Repository.createAllParametr(

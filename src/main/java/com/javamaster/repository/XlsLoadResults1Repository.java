@@ -1,6 +1,7 @@
 package com.javamaster.repository;
 
 import com.javamaster.entity.Teams;
+import com.javamaster.entity.XlsLoadResults1;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -9,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface XlsLoadResults1Repository extends JpaRepository<Teams, Long> {
+
+    // Get
+    @Transactional(readOnly = true)
+    @Query(value = "SELECT * FROM XlsLoadResults1", nativeQuery = true)
+    List<XlsLoadResults1> findAllXlsLoadResults1DB();
 
     // Create
     @Modifying

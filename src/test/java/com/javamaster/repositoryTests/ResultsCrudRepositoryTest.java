@@ -39,23 +39,17 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, pilots.size());
     }
 
-//    // Create
-//    @Test
-//    void createPilotNameParametr() {
-//        pilotsCrudRepository.createPilotNameParametr("Lewis Hamilton");
-//        Assertions.assertEquals(1, 1);
-//    }
-//
-//    @Test
-//    void createTeam2Parametr() {
-//        pilotsCrudRepository.createPilotParametr("Lewis Hamilton", "Hamilton");
-//        Assertions.assertEquals(1, 1);
-//    }
+    // Create
+    @Test
+    void createResultsNumberRaceCodePilotParams() {
+        resultsCrudRepository.createResultsNumberRaceCodePilotParams(34, "202149",1, "Hamilton");
+        Assertions.assertEquals(1, 1);
+    }
 
     // Delete
     @Test
     void deleteVoidWhereIdParametr() {
-        resultsCrudRepository.deleteVoidWhereIdParametr(3L);
+        resultsCrudRepository.deleteVoidWhereIdParametr(2L);
         Assertions.assertEquals(1, 1);
     }
 

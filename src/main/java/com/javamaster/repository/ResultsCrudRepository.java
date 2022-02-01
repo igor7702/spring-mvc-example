@@ -20,6 +20,10 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
     List<Results> findWhereRaceNameParam(String raceName);
 
     @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from results where race_name like :raceName and pilot_name like :pilotName")
+    List<Results> findWhereRaceNameAndCodePilotParam(String raceName, String pilotName);
+
+    @Transactional(readOnly = true)
     @Query(nativeQuery = true, value = "select * from results where id=:idResult")
     List<Results> findWhereIdResultParam(Long idResult);
 
@@ -75,6 +79,29 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
                                 int pointsPilotAll,
                                 int pointsTeam,
                                 int pointsTeamAll
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into results (" +
+            "race_id," +
+            "race_name," +
+            "pilot_id," +
+            "pilot_name" +
+            ") " +
+            "VALUES (" +
+            ":raceId," +
+            ":raceName," +
+            ":pilotId," +
+            ":pilotName" +
+            ")"
+    )
+    void createResultsNumberRaceCodePilotParams(
+                                int raceId,
+                                String raceName,
+                                int pilotId,
+                                String pilotName
+
     );
 
     // Delete
