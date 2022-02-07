@@ -1,6 +1,5 @@
 package com.javamaster.repository;
 
-import com.javamaster.entity.Teams;
 import com.javamaster.entity.XlsLoadResults1;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface XlsLoadResults1Repository extends JpaRepository<Teams, Long> {
+public interface XlsLoadResults1Repository extends JpaRepository<XlsLoadResults1, Long> {
 
     // Get
     @Transactional(readOnly = true)
@@ -70,6 +69,19 @@ public interface XlsLoadResults1Repository extends JpaRepository<Teams, Long> {
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position" +
+            ") " +
+            "values (" +
+            ":position" +
+            ")")
+
+    void create1Parametr(
+            int position
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
             "position, " +
             "numberpilot " +
             ") " +
@@ -79,8 +91,8 @@ public interface XlsLoadResults1Repository extends JpaRepository<Teams, Long> {
             ")")
 
     void create2Parametr(
-            double position,
-            double numberPilot
+            int position,
+            int numberPilot
     );
 
     @Modifying
@@ -101,6 +113,84 @@ public interface XlsLoadResults1Repository extends JpaRepository<Teams, Long> {
             double position,
             double numberPilot,
             String namePilot
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team " +
+            ")"
+    )
+
+    void create4Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor " +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor" +
+            ")"
+    )
+
+    void create5Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps " +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps" +
+            ")"
+    )
+
+    void create6Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps
     );
 
     // Delete

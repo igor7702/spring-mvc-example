@@ -45,6 +45,13 @@ public class PilotsCrudRepositoryTest {
         Assertions.assertEquals(1, pilots.size());
     }
 
+    @Test
+    void findWhereNameRusParam() {
+        List<Pilots> pilots = pilotsCrudRepository.findWhereNameRusParam("Макс Ферстаппен");
+        pilots.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, pilots.size());
+    }
+
     // Create
     @Test
     void createPilotNameParametr() {

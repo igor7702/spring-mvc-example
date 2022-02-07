@@ -29,8 +29,8 @@ public class ExcellReadResultsController {
     public String home(@RequestParam(required = false)
                        String PermissionCodeCountry, int numberStartRow, int numberEndRow) throws IOException {
         int ourIndex = 0;
-        double position = 0;
-        double numberPilot = 0;
+        int position = 0;
+        int numberPilot = 0;
         String namePilot = "";
         String team = "";
         String motor = "";
@@ -42,6 +42,8 @@ public class ExcellReadResultsController {
         String crash = "";
         double points = 0;
         double country = 0;
+
+        xlsLoadResults1Repository.deleteAllTable();
 
         // 1 - позиция по завершению гонки
         // 2 - номер гонщика
@@ -58,6 +60,7 @@ public class ExcellReadResultsController {
         // 13 - страна
 
         // Read XSL file
+        //FileInputStream inputStream = new FileInputStream(new File("C:/Books/info/F1ExampleXLS_OneRow.xls"));
         FileInputStream inputStream = new FileInputStream(new File("C:/Books/info/F1ExampleXLSBig.xls"));
 
         // Get the workbook instance for XLS file
@@ -76,19 +79,19 @@ public class ExcellReadResultsController {
 
             // Инициализация полей в начальное значение
             ourIndex = 0;
-            position = 0;
-            numberPilot = 0;
-            namePilot = "";
-            team = "";
-            motor = "";
-            laps = 0;
-            raceTime = "";
-            lead = "";
-            gap = "";
-            pitStops = 0;
-            crash = "";
-            points = 0;
-            country = 0;
+            position = 0; //1
+            numberPilot = 0; //2
+            namePilot = ""; //3
+            team = ""; //4
+            motor = ""; //5
+            laps = 0; //6
+            raceTime = ""; //7
+            lead = ""; //8
+            gap = ""; //9
+            pitStops = 0; //10
+            crash = ""; //11
+            points = 0; //12
+            country = 0; //13
 
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
@@ -135,24 +138,24 @@ public class ExcellReadResultsController {
 
                         switch (ourIndex)
                         {
-                            case 1:
-                                position = cell.getNumericCellValue();
+                            case 1: //position
+                                position = (int) cell.getNumericCellValue();
                                 break;
-                            case 2:
-                                numberPilot = cell.getNumericCellValue();
+                            case 2: //numberpilot
+                                numberPilot = (int) cell.getNumericCellValue();
                                 break;
-                            case 6:
-                                laps = cell.getNumericCellValue();
-                                break;
-                            case 10:
-                                pitStops = cell.getNumericCellValue();
-                                break;
-                            case 12:
-                                points = cell.getNumericCellValue();
-                                break;
-                            case 13:
-                                country = cell.getNumericCellValue();
-                                break;
+//                            case 6:
+//                                laps = cell.getNumericCellValue();
+//                                break;
+//                            case 10:
+//                                pitStops = cell.getNumericCellValue();
+//                                break;
+//                            case 12:
+//                                points = cell.getNumericCellValue();
+//                                break;
+//                            case 13:
+//                                country = cell.getNumericCellValue();
+//                                break;
                         }
                         break;
                     case STRING:
@@ -162,7 +165,7 @@ public class ExcellReadResultsController {
                         System.out.print("\t");
                         switch (ourIndex)
                         {
-                            case 3:
+                            case 3: //namepilot
                                 namePilot = cell.getStringCellValue();
                                 break;
                             case 4:
@@ -171,18 +174,18 @@ public class ExcellReadResultsController {
                             case 5:
                                 motor = cell.getStringCellValue();
                                 break;
-                            case 7:
-                                raceTime = cell.getStringCellValue();
-                                break;
-                            case 8:
-                                lead = cell.getStringCellValue();
-                                break;
-                            case 9:
-                                gap = cell.getStringCellValue();
-                                break;
-                            case 11:
-                                crash = cell.getStringCellValue();
-                                break;
+//                            case 7:
+//                                raceTime = cell.getStringCellValue();
+//                                break;
+//                            case 8:
+//                                lead = cell.getStringCellValue();
+//                                break;
+//                            case 9:
+//                                gap = cell.getStringCellValue();
+//                                break;
+//                            case 11:
+//                                crash = cell.getStringCellValue();
+//                                break;
                         }
                         break;
                     case ERROR:
@@ -198,20 +201,50 @@ public class ExcellReadResultsController {
 
             // Для базы данных
             // Заполнить первичную таблицу
-            xlsLoadResults1Repository.createAllParametr(
+//            xlsLoadResults1Repository.createAllParametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead,
+//                    gap,
+//                    pitStops,
+//                    crash,
+//                    points,
+//                    country
+//            );
+
+//            xlsLoadResults1Repository.create1Parametr(
+//                    position
+//            );
+
+//            xlsLoadResults1Repository.create2Parametr(
+//                    position,
+//                    numberPilot
+//            );
+
+//            xlsLoadResults1Repository.create3Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot
+//            );
+
+//            xlsLoadResults1Repository.create4Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team
+//            );
+
+            xlsLoadResults1Repository.create5Parametr(
                     position,
                     numberPilot,
                     namePilot,
                     team,
-                    motor,
-                    laps,
-                    raceTime,
-                    lead,
-                    gap,
-                    pitStops,
-                    crash,
-                    points,
-                    country
+                    motor
             );
 
         }
@@ -229,14 +262,14 @@ public class ExcellReadResultsController {
 //        //Teams teamName = teamFromDB.get(1);
 //        int teamId = 0;
 
-        int lap = (int) Math.round(laps);
-        boolean bestlap = false;
-        int startGreed = 0;
-        int endGreed = (int) Math.round(position);
-        int pointsPilot = (int) Math.round(points);
-        int pointsPilotAll = 0;
-        int pointsTeam = (int) Math.round(points);;
-        int pointsTeamAll = 0;
+//        int lap = (int) Math.round(laps);
+//        boolean bestlap = false;
+//        int startGreed = 0;
+//        int endGreed = (int) Math.round(position);
+//        int pointsPilot = (int) Math.round(points);
+//        int pointsPilotAll = 0;
+//        int pointsTeam = (int) Math.round(points);;
+//        int pointsTeamAll = 0;
 
         // Заполнить поля для БД
         // Проверить, есть ли запись

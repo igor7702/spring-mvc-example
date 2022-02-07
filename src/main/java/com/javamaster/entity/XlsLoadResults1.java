@@ -11,22 +11,24 @@ public class XlsLoadResults1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Getter
+//    @Setter
+    private int id;
 
     @Column
     @Getter
     @Setter
-    double position;
+    int position;
 
     @Column
     @Getter
     @Setter
-    double numberPilot;
+    long numberpilot;
 
     @Column
     @Getter
     @Setter
-    String namePilot;
+    String namepilot;
 
     @Column
     @Getter
@@ -41,47 +43,47 @@ public class XlsLoadResults1 {
     @Column
     @Getter
     @Setter
-    double laps;
+    int laps;
 
-    @Column
-    @Getter
-    @Setter
-    String raceTime;
+//    @Column
+//    @Getter
+//    @Setter
+//    String racetime;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    String lead;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    String gap;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    long pitstops;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    String crash;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    long points;
+//
+//    @Column
+//    @Getter
+//    @Setter
+//    long country;
 
-    @Column
-    @Getter
-    @Setter
-    String lead;
-
-    @Column
-    @Getter
-    @Setter
-    String gap;
-
-    @Column
-    @Getter
-    @Setter
-    double pitStops;
-
-    @Column
-    @Getter
-    @Setter
-    String crash;
-
-    @Column
-    @Getter
-    @Setter
-    double points;
-
-    @Column
-    @Getter
-    @Setter
-    double country;
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -90,18 +92,18 @@ public class XlsLoadResults1 {
         return "XlsLoadResults1{" +
                 "id=" + id +
                 ", position='" + position + '\'' +
-                ", numberPilot='" + numberPilot + '\'' +
-                ", namePilot='" + namePilot + '\'' +
+                ", numberPilot='" + numberpilot + '\'' +
+                ", namePilot='" + namepilot + '\'' +
                 ", team='" + team + '\'' +
                 ", motor='" + motor + '\'' +
                 ", laps='" + laps + '\'' +
-                ", raceTime='" + raceTime + '\'' +
-                ", lead='" + lead + '\'' +
-                ", gap='" + gap + '\'' +
-                ", pitStops='" + pitStops + '\'' +
-                ", crash='" + crash + '\'' +
-                ", points='" + points + '\'' +
-                ", country='" + country + '\'' +
+//                ", raceTime='" + racetime + '\'' +
+//                ", lead='" + lead + '\'' +
+//                ", gap='" + gap + '\'' +
+//                ", pitStops='" + pitstops + '\'' +
+//                ", crash='" + crash + '\'' +
+//                ", points='" + points + '\'' +
+//                ", country='" + country + '\'' +
                 '}';
     }
 }

@@ -1,6 +1,5 @@
 package com.javamaster.repositoryTests;
 
-import com.javamaster.entity.Cities;
 import com.javamaster.entity.XlsLoadResults1;
 import com.javamaster.repository.XlsLoadResults1Repository;
 import org.junit.jupiter.api.Assertions;
@@ -21,11 +20,6 @@ public class XlsLoadResults1Test {
     private XlsLoadResults1Repository xlsLoadResults1Repository;
 
     // Get
-//    // Get
-//    @Transactional(readOnly = true)
-//    @Query(value = "SELECT * FROM XlsLoadResults1", nativeQuery = true)
-//    List<XlsLoadResults1> findAllXlsLoadResults1DB();
-
     @Test
     void findAllXlsLoadResults1DB() {
         List<XlsLoadResults1> results = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
@@ -55,6 +49,14 @@ public class XlsLoadResults1Test {
     }
 
     @Test
+    void create1Parametr() {
+        xlsLoadResults1Repository.create1Parametr(
+                1
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
     void create2Parametr() {
         xlsLoadResults1Repository.create2Parametr(
                 1,
@@ -69,6 +71,42 @@ public class XlsLoadResults1Test {
                 1,
                 44,
                 "Hamilton"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create4Parametr() {
+        xlsLoadResults1Repository.create4Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create5Parametr() {
+        xlsLoadResults1Repository.create5Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create6Parametr() {
+        xlsLoadResults1Repository.create6Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54
         );
         Assertions.assertEquals(1, 1);
     }

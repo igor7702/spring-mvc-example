@@ -1,6 +1,7 @@
 package com.javamaster.controller;
 
 import com.javamaster.entity.XlsLoadResults1;
+import com.javamaster.entity.Pilots;
 import com.javamaster.repository.PilotsCrudRepository;
 import com.javamaster.repository.XlsLoadResults1Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,35 +31,43 @@ public class ResultController {
         // Если в result есть номер гонки и пилот, ничего не делаем
         // Если нет - создаём записи в result
 
-        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
-        result.forEach(it3-> System.out.println(it3));
-        System.out.println("result.size = " + result.size());
-        int resultExists = result.size();
+//        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+//        result.forEach(it3-> System.out.println(it3));
+//        System.out.println("result.size = " + result.size());
+//        int resultExists = result.size();
 
-        if(resultExists != 0){
-            // Проверить, есть ли такая запись в тб results по номеру гонки и коду пилота
-            // Если такой записи нет - записать
-             //pilotsCrudRepository.createPilotParametr(namePilot, codePilot);
-        }
-
-//        String codePilot = "";
-//        int phraseLength = namePilot.length();
-//        int index1 = namePilot.indexOf(' ');
+//        String nameRus;
+//        String codePilot;
+//        long idPilot;
 //        int namePilotExists;
+//        long numberRace;
+
+//        if(resultExists != 0){
 //
-//        if (index1 != -1){
-//            codePilot = namePilot.substring(index1 + 1);
-//        }
+//            // Получить первую запись из Лист, затем заменить на цикл записей
+//            // Получить имя рус гонщика и номер гонки
+//            nameRus = result.get(0).getNamePilot();
+//            numberRace = (long) result.get(0).getCountry();
 //
-//        System.out.println("Мы ищем букву ' ' в строке "+namePilot+". Индекс данной буквы "+index1 );
+//            // По номеру гонки получить id гонки и имя гонки
 //
-//        List<Pilots> pilotsName = pilotsCrudRepository.findWhereNamePilotParam(namePilot);
-//        pilotsName.forEach(it-> System.out.println(it));
-//        System.out.println("pilotsName.size = " + pilotsName.size());
-//        namePilotExists = pilotsName.size();
+//            // По имени гонщика получить в Pilot - код гонщика и его id
+//            // Если есть результат, то получим codePilot и idPilot
+//            List<Pilots> pilots = pilotsCrudRepository.findWhereNameRusParam(nameRus);
+//            pilots.forEach(it4-> System.out.println(it4));
+//            System.out.println("pilots.size = " + pilots.size());
+//            namePilotExists = pilots.size();
 //
-//        if(namePilotExists == 0){
-//             pilotsCrudRepository.createPilotParametr(namePilot, codePilot);
+//            if(namePilotExists != 0){
+//                idPilot = pilots.get(0).getId();
+//                codePilot = pilots.get(0).getCode_pilots();
+//
+//                // Проверить, есть ли такая запись в тб results по номеру гонки и коду пилота
+//                // Если такой записи нет - записать
+//                //pilotsCrudRepository.createPilotParametr(namePilot, codePilot);
+//
+//            }
+//
 //        }
 
         return "answerAddGood_page";
