@@ -193,6 +193,293 @@ public interface XlsLoadResults1Repository extends JpaRepository<XlsLoadResults1
             int laps
     );
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime " +
+            ")"
+    )
+
+    void create7Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead " +
+            ")"
+    )
+
+    void create8Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead, " +
+            "gap" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead, " +
+            ":gap" +
+            ")"
+    )
+
+    void create9Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead,
+            String gap
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead, " +
+            "gap, " +
+            "pitstops" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead, " +
+            ":gap, " +
+            ":pitStops" +
+            ")"
+    )
+
+    void create10Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead,
+            String gap,
+            int pitStops
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead, " +
+            "gap, " +
+            "pitstops, " +
+            "crash" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead, " +
+            ":gap, " +
+            ":pitStops, " +
+            ":crash" +
+            ")"
+    )
+
+    void create11Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead,
+            String gap,
+            int pitStops,
+            String crash
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead, " +
+            "gap, " +
+            "pitstops, " +
+            "crash, " +
+            "points" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead, " +
+            ":gap, " +
+            ":pitStops, " +
+            ":crash, " +
+            ":points" +
+            ")"
+    )
+
+    void create12Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead,
+            String gap,
+            int pitStops,
+            String crash,
+            int points
+    );
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into XlsLoadResults1 (" +
+            "position, " +
+            "numberpilot, " +
+            "namepilot, " +
+            "team, " +
+            "motor, " +
+            "laps, " +
+            "racetime, " +
+            "lead, " +
+            "gap, " +
+            "pitstops, " +
+            "crash, " +
+            "points, " +
+            "country" +
+            ") " +
+            "values (" +
+            ":position, " +
+            ":numberPilot, " +
+            ":namePilot, " +
+            ":team, " +
+            ":motor, " +
+            ":laps, " +
+            ":raceTime, " +
+            ":lead, " +
+            ":gap, " +
+            ":pitStops, " +
+            ":crash, " +
+            ":points, " +
+            ":country" +
+            ")"
+    )
+
+    void create13Parametr(
+            int position,
+            int numberPilot,
+            String namePilot,
+            String team,
+            String motor,
+            int laps,
+            String raceTime,
+            String lead,
+            String gap,
+            int pitStops,
+            String crash,
+            int points,
+            int country
+    );
+
     // Delete
     @Modifying
     @Transactional

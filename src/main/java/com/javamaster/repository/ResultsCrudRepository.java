@@ -104,7 +104,28 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
 
     );
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into results (" +
+            "race_id," +
+            "race_name" +
+            ") " +
+            "VALUES (" +
+            ":raceId," +
+            ":raceName" +
+            ")"
+    )
+    void create2Params(
+            int raceId,
+            String raceName
+    );
+
     // Delete
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "delete from results")
+    void deleteAllTable();
+
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "delete from results where id=:id")

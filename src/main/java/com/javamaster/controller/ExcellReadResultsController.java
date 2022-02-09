@@ -34,14 +34,14 @@ public class ExcellReadResultsController {
         String namePilot = "";
         String team = "";
         String motor = "";
-        double laps = 0;
+        int laps = 0;
         String raceTime = "";
         String lead = "";
         String gap = "";
-        double pitStops = 0;
+        int pitStops = 0;
         String crash = "";
-        double points = 0;
-        double country = 0;
+        int points = 0;
+        int country = 0;
 
         xlsLoadResults1Repository.deleteAllTable();
 
@@ -144,18 +144,18 @@ public class ExcellReadResultsController {
                             case 2: //numberpilot
                                 numberPilot = (int) cell.getNumericCellValue();
                                 break;
-//                            case 6:
-//                                laps = cell.getNumericCellValue();
-//                                break;
-//                            case 10:
-//                                pitStops = cell.getNumericCellValue();
-//                                break;
-//                            case 12:
-//                                points = cell.getNumericCellValue();
-//                                break;
-//                            case 13:
-//                                country = cell.getNumericCellValue();
-//                                break;
+                            case 6:
+                                laps = (int) cell.getNumericCellValue();
+                                break;
+                            case 10:
+                                pitStops = (int) cell.getNumericCellValue();
+                                break;
+                            case 12:
+                                points = (int) cell.getNumericCellValue();
+                                break;
+                            case 13:
+                                country = (int) cell.getNumericCellValue();
+                                break;
                         }
                         break;
                     case STRING:
@@ -174,15 +174,15 @@ public class ExcellReadResultsController {
                             case 5:
                                 motor = cell.getStringCellValue();
                                 break;
-//                            case 7:
-//                                raceTime = cell.getStringCellValue();
-//                                break;
-//                            case 8:
-//                                lead = cell.getStringCellValue();
-//                                break;
-//                            case 9:
-//                                gap = cell.getStringCellValue();
-//                                break;
+                            case 7:
+                                raceTime = cell.getStringCellValue();
+                                break;
+                            case 8:
+                                lead = cell.getStringCellValue();
+                                break;
+                            case 9:
+                                gap = cell.getStringCellValue();
+                                break;
 //                            case 11:
 //                                crash = cell.getStringCellValue();
 //                                break;
@@ -239,14 +239,113 @@ public class ExcellReadResultsController {
 //                    team
 //            );
 
-            xlsLoadResults1Repository.create5Parametr(
+//            xlsLoadResults1Repository.create5Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor
+//            );
+
+//            xlsLoadResults1Repository.create6Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps
+//            );
+
+//            xlsLoadResults1Repository.create7Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime
+//            );
+
+//            xlsLoadResults1Repository.create8Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead
+//            );
+
+//            xlsLoadResults1Repository.create9Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead,
+//                    gap
+//            );
+
+//            xlsLoadResults1Repository.create10Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead,
+//                    gap,
+//                    pitStops
+//            );
+
+//            xlsLoadResults1Repository.create11Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead,
+//                    gap,
+//                    pitStops,
+//                    crash
+//            );
+
+//            xlsLoadResults1Repository.create12Parametr(
+//                    position,
+//                    numberPilot,
+//                    namePilot,
+//                    team,
+//                    motor,
+//                    laps,
+//                    raceTime,
+//                    lead,
+//                    gap,
+//                    pitStops,
+//                    crash,
+//                    points
+//            );
+
+            xlsLoadResults1Repository.create13Parametr(
                     position,
                     numberPilot,
                     namePilot,
                     team,
-                    motor
+                    motor,
+                    laps,
+                    raceTime,
+                    lead,
+                    gap,
+                    pitStops,
+                    crash,
+                    points,
+                    country
             );
-
         }
 
 //        // Определить все поля для базы result

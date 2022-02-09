@@ -46,7 +46,22 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void create2Params() {
+        resultsCrudRepository.create2Params(
+                34,
+                "202149"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
+    @Test
+    void deleteAllTable() {
+        resultsCrudRepository.deleteAllTable();
+        Assertions.assertEquals(1, 1);
+    }
+
     @Test
     void deleteVoidWhereIdParametr() {
         resultsCrudRepository.deleteVoidWhereIdParametr(2L);

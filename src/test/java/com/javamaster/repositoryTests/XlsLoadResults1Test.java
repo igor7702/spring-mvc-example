@@ -111,6 +111,125 @@ public class XlsLoadResults1Test {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void create7Parametr() {
+        xlsLoadResults1Repository.create7Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create8Parametr() {
+        xlsLoadResults1Repository.create8Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create9Parametr() {
+        xlsLoadResults1Repository.create9Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100",
+                "200"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create10Parametr() {
+        xlsLoadResults1Repository.create10Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100",
+                "200",
+                5
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create11Parametr() {
+        xlsLoadResults1Repository.create11Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100",
+                "200",
+                5,
+                "None"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create12Parametr() {
+        xlsLoadResults1Repository.create12Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100",
+                "200",
+                5,
+                "None",
+                15
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create13Parametr() {
+        xlsLoadResults1Repository.create13Parametr(
+                1,
+                44,
+                "Hamilton",
+                "Mercedes",
+                "Mercedes",
+                54,
+                "100",
+                "100",
+                "200",
+                5,
+                "None",
+                15,
+                2140
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void ClearTableXlsLoadResults1() {

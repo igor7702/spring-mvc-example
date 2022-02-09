@@ -45,40 +45,40 @@ public class XlsLoadResults1 {
     @Setter
     int laps;
 
-//    @Column
-//    @Getter
-//    @Setter
-//    String racetime;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    String lead;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    String gap;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    long pitstops;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    String crash;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    long points;
-//
-//    @Column
-//    @Getter
-//    @Setter
-//    long country;
+    @Column
+    @Getter
+    @Setter
+    String racetime;
+
+    @Column
+    @Getter
+    @Setter
+    String lead;
+
+    @Column
+    @Getter
+    @Setter
+    String gap;
+
+    @Column
+    @Getter
+    @Setter
+    int pitstops;
+
+    @Column
+    @Getter
+    @Setter
+    String crash;
+
+    @Column
+    @Getter
+    @Setter
+    int points;
+
+    @Column
+    @Getter
+    @Setter
+    int country;
 
     public int getId() {
         return id;
@@ -97,13 +97,13 @@ public class XlsLoadResults1 {
                 ", team='" + team + '\'' +
                 ", motor='" + motor + '\'' +
                 ", laps='" + laps + '\'' +
-//                ", raceTime='" + racetime + '\'' +
-//                ", lead='" + lead + '\'' +
-//                ", gap='" + gap + '\'' +
-//                ", pitStops='" + pitstops + '\'' +
-//                ", crash='" + crash + '\'' +
-//                ", points='" + points + '\'' +
-//                ", country='" + country + '\'' +
+                ", raceTime='" + racetime + '\'' +
+                ", lead='" + lead + '\'' +
+                ", gap='" + gap + '\'' +
+                ", pitStops='" + pitstops + '\'' +
+                ", crash='" + crash + '\'' +
+                ", points='" + points + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 }
