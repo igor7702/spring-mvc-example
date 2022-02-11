@@ -2,8 +2,10 @@ package com.javamaster.controller;
 
 import com.javamaster.entity.XlsLoadResults1;
 import com.javamaster.entity.Pilots;
+import com.javamaster.entity.Results;
 import com.javamaster.repository.PilotsCrudRepository;
 import com.javamaster.repository.XlsLoadResults1Repository;
+import com.javamaster.repository.ResultsCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +23,16 @@ public class ResultController {
     @Autowired
     private XlsLoadResults1Repository xlsLoadResults1Repository;
 
+    @Autowired
+    private ResultsCrudRepository resultsCrudRepository;
+
     // Create
     @GetMapping("/CreateResultsRaceName")
-    public String CreateResultsNumberRacePilotCode(@RequestParam(required = false) Model model,
+    public String CreateResultsRaceName(@RequestParam(required = false) Model model,
                        String PermissionCodeCountry) {
-        // Вар.1 Просто создать запись с именем и кодом гонки
-        // Создать Create с двумя параметрами имя гонки и код гонки (ResultsCrudRepository)
+        // Вар.1 Просто создать запись с именем гонки
+        // Создать Create с одним параметром имя гонки (ResultsCrudRepository)
         // Протестировать (тест results)
-
-        // Получить из XLS все номера гонки и пилотов
-        // Обойти этот результат
-        // Если в result есть номер гонки и пилот, ничего не делаем
-        // Если нет - создаём записи в result
 
         List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
         result.forEach(it3-> System.out.println(it3));
@@ -50,6 +50,8 @@ public class ResultController {
             System.out.println("String raceName = " + raceName);
 
             //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1Params(raceName);
 //            // По номеру гонки получить id гонки и имя гонки
 //
 //            // По имени гонщика получить в Pilot - код гонщика и его id
@@ -69,6 +71,39 @@ public class ResultController {
 //
 //            }
 //
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsIdRace")
+    public String CreateResultsIdRace(@RequestParam(required = false) Model model,
+                                        String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с id гонки
+        // Создать Create с одним параметром id гонки (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId = 32;
+        String raceName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить номер гонки
+            raceName = Integer.toString(result.get(0).getCountry());
+            System.out.println("String raceName = " + raceName);
+
+            //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1IdParams(raceId);
+//            // По номеру гонки получить id гонки и имя гонки
+
         }
 
         return "answerAddGood_page";

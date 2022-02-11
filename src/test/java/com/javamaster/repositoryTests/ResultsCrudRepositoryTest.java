@@ -55,6 +55,22 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void create1Params() {
+        resultsCrudRepository.create1Params(
+                "202149"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void create1IdParams() {
+        resultsCrudRepository.create1IdParams(
+                33
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
