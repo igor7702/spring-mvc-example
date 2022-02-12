@@ -47,8 +47,8 @@ public class ResultsCrudRepositoryTest {
     }
 
     @Test
-    void create2Params() {
-        resultsCrudRepository.create2Params(
+    void create2raceIdAndRaceNameParams() {
+        resultsCrudRepository.create2raceIdAndRaceNameParams(
                 34,
                 "202149"
         );

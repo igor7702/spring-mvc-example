@@ -115,7 +115,7 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             ":raceName" +
             ")"
     )
-    void create2Params(
+    void create2raceIdAndRaceNameParams(
             int raceId,
             String raceName
     );
