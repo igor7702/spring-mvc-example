@@ -166,7 +166,8 @@ public class ExcellReadResultsController {
                         switch (ourIndex)
                         {
                             case 3: //namepilot
-                                namePilot = cell.getStringCellValue();
+                                String s = cell.getStringCellValue();
+                                namePilot = s.substring(1);
                                 break;
                             case 4:
                                 team = cell.getStringCellValue();

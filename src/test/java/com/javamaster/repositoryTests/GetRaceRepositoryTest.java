@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,6 +27,13 @@ public class GetRaceRepositoryTest {
     void findAllRacesDB() {
         List<Races> races = getRacesRepository.findWhereWeekYearParam("49", "2021");
         races.forEach(it-> System.out.println(it));
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    void findRacesWithIdRaceDB() {
+        List<Races> races = getRacesRepository.findWhereIdRaceParam("202112");
+        races.forEach(it -> System.out.println(it));
         Assertions.assertEquals(1, 1);
     }
 

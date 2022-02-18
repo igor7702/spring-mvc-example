@@ -3,9 +3,11 @@ package com.javamaster.controller;
 import com.javamaster.entity.XlsLoadResults1;
 import com.javamaster.entity.Pilots;
 import com.javamaster.entity.Results;
+import com.javamaster.entity.Races;
 import com.javamaster.repository.PilotsCrudRepository;
 import com.javamaster.repository.XlsLoadResults1Repository;
 import com.javamaster.repository.ResultsCrudRepository;
+import com.javamaster.repository.GetRacesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ public class ResultController {
 
     @Autowired
     private ResultsCrudRepository resultsCrudRepository;
+
+    @Autowired
+    private GetRacesRepository getRacesRepository;
 
     // Create
     @GetMapping("/CreateResultsRaceName")
@@ -134,7 +139,7 @@ public class ResultController {
             // Заменить на цикл записей
             // result.size() - всего записей
             resultsCrudRepository.deleteAllTable();
-            for (int i = 0; i <= 20; i++){
+            for (int i = 0; i < 20; i++){
 
                 // Получить номер гонки
                 System.out.println("String raceName = " + i);
@@ -207,6 +212,274 @@ public class ResultController {
             resultsCrudRepository.deleteAllTable();
             resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
 //            // По номеру гонки получить id гонки и имя гонки
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+   // Create
+   @GetMapping("/CreateResultsRaceNameAndSimpleIdRaceAll")
+   public String CreateResultsRaceNameAndSimpleIdRaceAll(@RequestParam(required = false) Model model,
+                                                      String PermissionCodeCountry) {
+       // Вар.1 Просто создать запись с id гонки и именем гонки
+       // Создать Create с двумя параметрами id гонки и именем гонки (ResultsCrudRepository)
+       // Протестировать (тест results)
+
+       List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+       result.forEach(it3-> System.out.println(it3));
+       System.out.println("result.size = " + result.size());
+       int resultExists = result.size();
+
+       int raceId = 32;
+       String raceName;
+
+       if(resultExists != 0){
+           resultsCrudRepository.deleteAllTable();
+           for (int i = 0; i < 20; i++){
+               // Получить первую запись из Лист, затем заменить на цикл записей
+               // Получить номер гонки
+               raceName = Integer.toString(result.get(i).getCountry());
+               System.out.println("String raceName = " + raceName);
+
+               //Записать номер гонки в results
+               resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
+               // По номеру гонки получить id гонки и имя гонки
+           }
+       }
+
+       return "answerAddGood_page";
+   }
+
+    // Create
+    @GetMapping("/CreateResultsRaceNameAndRealIdRace")
+    public String CreateResultsRaceNameAndRealIdRace(@RequestParam(required = false) Model model,
+                                                       String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с id гонки и именем гонки
+        // Создать Create с двумя параметрами id гонки и именем гонки (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId = 0;
+        String raceName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист XlsLoadResults1, затем заменить на цикл записей
+            // Получить номер гонки
+            raceName = Integer.toString(result.get(0).getCountry());
+            System.out.println("String raceName = " + raceName);
+
+            // Получить по имя гонки id гонки из тб races имя поля id_race
+            List<Races> resultRaces = getRacesRepository.findWhereIdRaceParam(raceName);
+            resultRaces.forEach(it3-> System.out.println(it3));
+            System.out.println("resultRaces.size = " + resultRaces.size());
+            int resultRacesExists = result.size();
+
+            if(resultRacesExists != 0){
+                raceId = resultRaces.get(0).getId().intValue();
+                System.out.println("String raceId = " + raceId);
+            }
+
+            //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsRaceNameAndRealIdRaceAll")
+    public String CreateResultsRaceNameAndRealIdRaceAll(@RequestParam(required = false) Model model,
+                                                     String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с id гонки и именем гонки
+        // Создать Create с двумя параметрами id гонки и именем гонки (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId = 0;
+        String raceName;
+
+        if(resultExists != 0){
+            resultsCrudRepository.deleteAllTable();
+            for (int i = 0; i < 20; i++){
+
+                // Получить первую запись из Лист XlsLoadResults1, затем заменить на цикл записей
+                // Получить номер гонки
+                raceName = Integer.toString(result.get(i).getCountry());
+                System.out.println("String raceName = " + raceName);
+
+                // Получить по имя гонки id гонки из тб races имя поля id_race
+                List<Races> resultRaces = getRacesRepository.findWhereIdRaceParam(raceName);
+                resultRaces.forEach(it3-> System.out.println(it3));
+                System.out.println("resultRaces.size = " + resultRaces.size());
+                int resultRacesExists = result.size();
+
+                if(resultRacesExists != 0){
+                    raceId = resultRaces.get(0).getId().intValue();
+                    System.out.println("String raceId = " + raceId);
+                }
+
+                //Записать номер гонки в results
+                resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
+
+            }
+        }
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsRaceNameAndRealIdRacePilotNameAndPilotId")
+    public String CreateResultsRaceNameAndRealIdRacePilotNameAndPilotId(@RequestParam(required = false) Model model,
+                                                     String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с id гонки и именем гонки
+        // Создать Create с двумя параметрами id гонки и именем гонки (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId = 0;
+        String raceName;
+
+        if(resultExists != 0){
+
+            // Блок races
+            // Получить первую запись из Лист XlsLoadResults1, затем заменить на цикл записей
+            // Получить номер гонки
+            raceName = Integer.toString(result.get(0).getCountry());
+            System.out.println("String raceName = " + raceName);
+
+            // Получить по имя гонки id гонки из тб races имя поля id_race
+            List<Races> resultRaces = getRacesRepository.findWhereIdRaceParam(raceName);
+            resultRaces.forEach(it3-> System.out.println(it3));
+            System.out.println("resultRaces.size = " + resultRaces.size());
+            int resultRacesExists = result.size();
+
+            if(resultRacesExists != 0){
+                raceId = resultRaces.get(0).getId().intValue();
+                System.out.println("String raceId = " + raceId);
+            }
+
+            //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Pilots
+    // Create
+    @GetMapping("/CreateResultsPilotName")
+    public String CreateResultsPilotName(@RequestParam(required = false) Model model,
+                                        String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с именем Пилота
+        // Создать Create с одним параметром имя Пилота (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int pilotId;
+        String pilotName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить имя пилота
+            pilotName = result.get(0).getNamepilot();
+            System.out.println("String pilotName = " + pilotName);
+
+            //Записать имя пилота в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1ParamsPilotName(pilotName);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsPilotNameFromTablePilots")
+    public String CreateResultsPilotNameFromTablePilots(@RequestParam(required = false) Model model,
+                                         String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с именем Пилота
+        // Создать Create с одним параметром имя Пилота (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int pilotId;
+        String pilotName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить имя пилота
+            pilotName = result.get(0).getNamepilot();
+            System.out.println("String pilotName = " + pilotName);
+
+            //По русскому имени пилота найти запись в тб Pilots -
+            //английский код пилота
+//            List<Pilots> resultPilot = pilotsCrudRepository.;
+//            result.forEach(it3-> System.out.println(it3));
+//            System.out.println("result.size = " + result.size());
+//            int resultExists = result.size();
+
+            //Записать имя пилота в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1ParamsPilotName(pilotName);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsPilotNameAll")
+    public String CreateResultsPilotNameAll(@RequestParam(required = false) Model model,
+                                         String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с именем Пилота
+        // Создать Create с одним параметром имя Пилота (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId;
+        String raceName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить номер гонки
+            raceName = Integer.toString(result.get(0).getCountry());
+            System.out.println("String raceName = " + raceName);
+
+            //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1Params(raceName);
 
         }
 

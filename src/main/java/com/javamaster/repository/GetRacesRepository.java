@@ -19,4 +19,14 @@ public interface GetRacesRepository extends JpaRepository<Races, Long> {
             "year_race like :numberYear")
     List<Races> findWhereWeekYearParam(String numberWeek, String numberYear);
 
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from races where id_race = :idRace")
+    List<Races> findWhereIdRaceParam(String idRace);
+
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "select * from races where " +
+            "id_race like :codeRace"
+            )
+    List<Races> findWhereCodeRaceParam(String codeRace);
+
 }

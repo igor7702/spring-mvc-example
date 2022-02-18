@@ -71,6 +71,15 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    // Pilot
+    @Test
+    void create1ParamsPilotName() {
+        resultsCrudRepository.create1ParamsPilotName(
+                "Main"
+        );
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
