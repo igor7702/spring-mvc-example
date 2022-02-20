@@ -80,6 +80,12 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void create2pilotIdAndPilotNameParams() {
+        resultsCrudRepository.create2pilotIdAndPilotNameParams(5, "New");
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
