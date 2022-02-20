@@ -27,6 +27,7 @@ public interface PilotsCrudRepository extends JpaRepository<Pilots, Long> {
     @Query(nativeQuery = true, value = "select * from pilots where namerus is null")
     List<Pilots> findWhereNameRusNull();
 
+    // Получить запись пилота по русскому имени
     @Transactional(readOnly = true)
     @Query(nativeQuery = true, value = "select * from pilots where namerus like :nameRus")
     List<Pilots> findWhereNameRusParam(String nameRus);

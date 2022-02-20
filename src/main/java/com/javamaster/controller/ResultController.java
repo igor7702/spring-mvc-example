@@ -416,8 +416,8 @@ public class ResultController {
     }
 
     // Create
-    @GetMapping("/CreateResultsPilotNameFromTablePilots")
-    public String CreateResultsPilotNameFromTablePilots(@RequestParam(required = false) Model model,
+    @GetMapping("/CreateResultsPilotNameAndPilotIdFromTablePilots")
+    public String CreateResultsPilotNameAndPilotIdFromTablePilots(@RequestParam(required = false) Model model,
                                          String PermissionCodeCountry) {
         // Вар.1 Просто создать запись с именем Пилота
         // Создать Create с одним параметром имя Пилота (ResultsCrudRepository)
@@ -430,6 +430,7 @@ public class ResultController {
 
         int pilotId;
         String pilotName;
+        String pilotCode;
 
         if(resultExists != 0){
 
@@ -440,14 +441,67 @@ public class ResultController {
 
             //По русскому имени пилота найти запись в тб Pilots -
             //английский код пилота
-//            List<Pilots> resultPilot = pilotsCrudRepository.;
-//            result.forEach(it3-> System.out.println(it3));
-//            System.out.println("result.size = " + result.size());
-//            int resultExists = result.size();
+            List<Pilots> resultPilot = pilotsCrudRepository.findWhereNameRusParam(pilotName);
+            resultPilot.forEach(it4-> System.out.println(it4));
+            System.out.println("result.size = " + result.size());
+            int resultPilotExists = resultPilot.size();
+
+            pilotCode = resultPilot.get(0).getCode_pilots();
+            pilotId=resultPilot.get(0).getId().intValue();
+
+            System.out.println("String pilotCode = " + pilotCode);
+            System.out.println("String pilotId = " + pilotId);
+
+            //Записать имя пилота и id пилота в results
+            resultsCrudRepository.deleteAllTable();
+            // Создать и протестировать метод записи 2-х параметров
+            resultsCrudRepository.create1ParamsPilotName(pilotCode);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Create
+    @GetMapping("/CreateResultsPilotNameFromTablePilots")
+    public String CreateResultsPilotNameFromTablePilots(@RequestParam(required = false) Model model,
+                                                        String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с именем Пилота
+        // Создать Create с одним параметром имя Пилота (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int pilotId;
+        String pilotName;
+        String pilotCode;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить имя пилота
+            pilotName = result.get(0).getNamepilot();
+            System.out.println("String pilotName = " + pilotName);
+
+            //По русскому имени пилота найти запись в тб Pilots -
+            //английский код пилота
+            List<Pilots> resultPilot = pilotsCrudRepository.findWhereNameRusParam(pilotName);
+            resultPilot.forEach(it4-> System.out.println(it4));
+            System.out.println("result.size = " + result.size());
+            int resultPilotExists = resultPilot.size();
+
+            pilotCode = resultPilot.get(0).getCode_pilots();
+            pilotId=resultPilot.get(0).getId().intValue();
+
+            System.out.println("String pilotCode = " + pilotCode);
+            System.out.println("String pilotId = " + pilotId);
 
             //Записать имя пилота в results
             resultsCrudRepository.deleteAllTable();
-            resultsCrudRepository.create1ParamsPilotName(pilotName);
+            resultsCrudRepository.create1ParamsPilotName(pilotCode);
 
         }
 

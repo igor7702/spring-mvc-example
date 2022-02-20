@@ -45,6 +45,7 @@ public class PilotsCrudRepositoryTest {
         Assertions.assertEquals(1, pilots.size());
     }
 
+    // Получить запись пилота по русскому имени
     @Test
     void findWhereNameRusParam() {
         List<Pilots> pilots = pilotsCrudRepository.findWhereNameRusParam("Макс Ферстаппен");
