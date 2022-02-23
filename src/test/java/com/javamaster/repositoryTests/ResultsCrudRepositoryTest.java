@@ -86,6 +86,12 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    void create4_IdPilot_PilotName_IdRace_NameRaceParams() {
+        resultsCrudRepository.create4_IdPilot_PilotName_IdRace_NameRaceParams(5, "New", 2, "NewRace");
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
