@@ -198,6 +198,22 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             String RaceName
     );
 
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into results (" +
+            "type_race_id," +
+            "type_race_namе" +
+            ") " +
+            "VALUES (" +
+            ":typeRaceId," +
+            ":typeRaceName" +
+            ")"
+    )
+    void create2_typeRaceId_typeRaceName_Params(
+            int typeRaceId,
+            String typeRaceName
+    );
+
     // Delete
     @Modifying
     @Transactional

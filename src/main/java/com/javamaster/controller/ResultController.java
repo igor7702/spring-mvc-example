@@ -729,6 +729,9 @@ public class ResultController {
         return "answerAddGood_page";
     }
 
+    // Create TypeRace
+
+
 //    // Delete
 //    @GetMapping("/deletePilot")
 //    public String home(@RequestParam(required = false) Model model,

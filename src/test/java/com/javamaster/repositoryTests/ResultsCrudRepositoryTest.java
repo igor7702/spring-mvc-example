@@ -92,6 +92,13 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    // Create RaceId and RaceName
+    @Test
+    void create2_typeRaceId_typeRaceName_Params() {
+        resultsCrudRepository.create2_typeRaceId_typeRaceName_Params(1, "Main");
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
