@@ -112,7 +112,13 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
-//    // Update
+    // Update
+    @Test
+    void UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots() {
+        resultsCrudRepository.UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(34,1, 1, "Main");
+        Assertions.assertEquals(1, 1);
+    }
+
 //    @Test
 //    void updateWhereYearAndCodeTeamParam() {
 //        teamsCrudRepository.updateWhereYearAndCodeTeamParam(2021, "2021_Ferrari", 4L);

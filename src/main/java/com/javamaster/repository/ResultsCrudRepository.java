@@ -214,6 +214,19 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             String typeRaceName
     );
 
+    // Update
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "type_race_id=:idTypeRace, " +
+            "type_race_namе=:NameTypeRace " +
+            "where " +
+            "race_id = :IdRace and " +
+            "pilot_id = :IdPilot" +
+            "")
+    void UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(int IdRace, int IdPilot,
+                                                                int idTypeRace, String NameTypeRace);
+
     // Delete
     @Modifying
     @Transactional
