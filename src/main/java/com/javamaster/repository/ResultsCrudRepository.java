@@ -214,6 +214,34 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             String typeRaceName
     );
 
+    // Create bestlap
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into results (" +
+            "bestLap" +
+            ") " +
+            "VALUES (" +
+            ":bestLap" +
+            ")"
+    )
+    void create1_BestLap_Boolean_Params(
+            boolean bestLap
+    );
+
+    // Create end_gread
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "insert into results (" +
+            "end_grid" +
+            ") " +
+            "VALUES (" +
+            ":endGrid" +
+            ")"
+    )
+    void create1_EndGrid_Int_Params(
+            int endGrid
+    );
+
     // Update
     @Modifying
     @Transactional

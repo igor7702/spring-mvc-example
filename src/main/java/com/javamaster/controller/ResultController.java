@@ -729,7 +729,98 @@ public class ResultController {
         return "answerAddGood_page";
     }
 
-    // Create TypeRace
+    // Create BestLap
+    // Create
+    @GetMapping("/CreateBestLapToFalseDefault")
+    public String CreateBestLapToFalseDefault(@RequestParam(required = false) Model model,
+                                        String PermissionCodeCountry) {
+        // Вар.1 Просто создать запись с именем гонки
+        // Создать Create с одним параметром имя гонки (ResultsCrudRepository)
+        // Протестировать (тест results)
+
+        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int raceId;
+        String raceName;
+
+        if(resultExists != 0){
+
+            // Получить первую запись из Лист, затем заменить на цикл записей
+            // Получить номер гонки
+            raceName = Integer.toString(result.get(0).getCountry());
+            System.out.println("String raceName = " + raceName);
+
+            //Записать номер гонки в results
+            resultsCrudRepository.deleteAllTable();
+            resultsCrudRepository.create1Params(raceName);
+
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update
+    @GetMapping("/UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots")
+    public String UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(@RequestParam(required = false) Model model,
+                                                                        String PermissionCodeCountry) {
+        // Получить выборку из Results
+        // Проанализировать - заполнены ли id_type_race и name_type_race
+        // если не заполнены, заполнить предопределенными значениями 1 main
+
+        List<Results> result = resultsCrudRepository.findAllResultsDB();
+        result.forEach(it3-> System.out.println(it3));
+        System.out.println("result.size = " + result.size());
+        int resultExists = result.size();
+
+        int idRace = 0;
+        int idPilot = 0;
+
+        int typeRaceId = 0;
+        String typeRaceName;
+
+        if(resultExists != 0){
+
+            //Получить id гонки и id пилота,
+            //Если id гонки и id пилота не пустые,- получить значения - т.к. это уникальная запись
+            idRace = result.get(0).getRaces().getId().intValue();
+            idPilot = result.get(0).getPilots().getId().intValue();
+
+            if( ! (idRace == 0 || idPilot == 0)){
+
+            }
+
+            // Блок type_races
+            // Получить первую запись из Лист Results, затем заменить на цикл записей
+            // Получить id типа гонки и имя типа гонки
+            typeRaceId = result.get(0).getTypesrace().getId().intValue();
+            typeRaceName = result.get(0).getType_race_namе();
+            System.out.println("String typeRaceName = " + typeRaceName);
+
+            // Если имя типа гонки или имя типа гонки null
+            // то обновить запись
+//
+//            // Получить по имя гонки id гонки из тб races имя поля id_race
+//            List<Races> resultRaces = getRacesRepository.findWhereIdRaceParam(raceName);
+//            resultRaces.forEach(it3-> System.out.println(it3));
+//            System.out.println("resultRaces.size = " + resultRaces.size());
+//            int resultRacesExists = result.size();
+//
+//            if(resultRacesExists != 0){
+//                raceId = resultRaces.get(0).getId().intValue();
+//                System.out.println("String raceId = " + raceId);
+//            }
+//
+//            //Записать номер гонки в results
+//            resultsCrudRepository.deleteAllTable();
+//            resultsCrudRepository.create2raceIdAndRaceNameParams(raceId, raceName);
+//
+        }
+
+        return "answerAddGood_page";
+    }
 
 
 //    // Delete

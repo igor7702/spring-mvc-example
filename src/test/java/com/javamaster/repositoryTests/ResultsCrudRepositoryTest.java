@@ -92,6 +92,20 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    //Create BestLap
+    @Test
+    void create1_BestLap_Boolean_Params() {
+        resultsCrudRepository.create1_BestLap_Boolean_Params(true);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Create end_grid
+    @Test
+    void create1_EndGread_Int_Params() {
+        resultsCrudRepository.create1_EndGrid_Int_Params(0);
+        Assertions.assertEquals(1, 1);
+    }
+
     // Create RaceId and RaceName
     @Test
     void create2_typeRaceId_typeRaceName_Params() {
