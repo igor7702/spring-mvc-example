@@ -729,34 +729,25 @@ public class ResultController {
         return "answerAddGood_page";
     }
 
-    // Create BestLap
-    // Create
-    @GetMapping("/CreateBestLapToFalseDefault")
+    // Update BestLap
+    @GetMapping("/UpdateBestLapToFalseDefault")
     public String CreateBestLapToFalseDefault(@RequestParam(required = false) Model model,
                                         String PermissionCodeCountry) {
-        // Вар.1 Просто создать запись с именем гонки
-        // Создать Create с одним параметром имя гонки (ResultsCrudRepository)
-        // Протестировать (тест results)
 
-        List<XlsLoadResults1> result = xlsLoadResults1Repository.findAllXlsLoadResults1DB();
-        result.forEach(it3-> System.out.println(it3));
-        System.out.println("result.size = " + result.size());
-        int resultExists = result.size();
+        //Записать дефолтное значение false в колонку bestlap
+        resultsCrudRepository.UpdateResults_BestLap_ToFalseWhereIdParam(206, true);
 
-        int raceId;
-        String raceName;
+        return "answerAddGood_page";
+    }
 
-        if(resultExists != 0){
-
-            // Получить первую запись из Лист, затем заменить на цикл записей
-            // Получить номер гонки
-            raceName = Integer.toString(result.get(0).getCountry());
-            System.out.println("String raceName = " + raceName);
-
-            //Записать номер гонки в results
-            resultsCrudRepository.deleteAllTable();
-            resultsCrudRepository.create1Params(raceName);
-
+    // Update BestLap All
+    @GetMapping("/UpdateBestLapToFalseDefaultAll")
+    public String UpdateBestLapToFalseDefaultAll(@RequestParam(required = false) Model model,
+                                              String PermissionCodeCountry) {
+        //Обойдём таблицу result c 205-224
+        //Записать дефолтное значение false в колонку bestlap
+        for(int i = 205; i < 225; i++){
+            resultsCrudRepository.UpdateResults_BestLap_ToFalseWhereIdParam(i, false);
         }
 
         return "answerAddGood_page";

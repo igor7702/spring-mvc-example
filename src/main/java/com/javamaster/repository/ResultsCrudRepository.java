@@ -254,6 +254,16 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             "")
     void UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(int IdRace, int IdPilot,
                                                                 int idTypeRace, String NameTypeRace);
+    // Установка значений по умолчанию
+    // Update поле bestlap в false вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "bestlap=:bestLap " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_BestLap_ToFalseWhereIdParam(int Id, boolean bestLap);
 
     // Delete
     @Modifying

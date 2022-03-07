@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,7 +30,7 @@ public class ResultsCrudRepositoryTest {
 
     @Test
     void findWhereIdResultsParam() {
-        List<Results> results = resultsCrudRepository.findWhereIdResultParam(10L);
+        List<Results> results = resultsCrudRepository.findWhereIdResultParam(213L);
         results.forEach(it-> System.out.println(it));
         Assertions.assertEquals(1, results.size());
     }
@@ -110,6 +113,14 @@ public class ResultsCrudRepositoryTest {
     @Test
     void create2_typeRaceId_typeRaceName_Params() {
         resultsCrudRepository.create2_typeRaceId_typeRaceName_Params(1, "Main");
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Установка значений по умолчанию
+    // Update поле bestlap в false вместо null
+    @Test
+    void UpdateResults_BestLap_ToFalseWhereIdParam() {
+        resultsCrudRepository.UpdateResults_BestLap_ToFalseWhereIdParam(205, true);
         Assertions.assertEquals(1, 1);
     }
 
