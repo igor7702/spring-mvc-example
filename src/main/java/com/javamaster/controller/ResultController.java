@@ -753,6 +753,55 @@ public class ResultController {
         return "answerAddGood_page";
     }
 
+    // Update поле type_race_id в 1 вместо null
+    @GetMapping("/UpdateResults_TypeRaceID_To1WhereIdParam")
+    public String UpdateResults_TypeRaceID_To1WhereIdParam(@RequestParam(required = false) Model model,
+                                              String PermissionCodeCountry) {
+
+        //Записать дефолтное значение 1 в колонку type_race_id
+        resultsCrudRepository.UpdateResults_TypeRaceID_To1WhereIdParam(208, 1);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле type_race_name в Main вместо null
+    @GetMapping("/UpdateResults_TypeRaceName_ToMainWhereIdParam")
+    public String UpdateResults_TypeRaceName_ToMainWhereIdParam(@RequestParam(required = false) Model model,
+                                                           String PermissionCodeCountry) {
+
+        //Записать дефолтное значение Main в колонку type_race_name
+        resultsCrudRepository.UpdateResults_TypeRaceName_ToMainWhereIdParam(208, "Main");
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле type_race_id в 1 вместо null All
+    @GetMapping("/UpdateResults_TypeRaceID_To1WhereIdParamAll")
+    public String UpdateResults_TypeRaceID_To1WhereIdParamAll(@RequestParam(required = false) Model model,
+                                                           String PermissionCodeCountry) {
+
+        //Записать дефолтное значение 1 в колонку type_race_id
+        //Обойдём таблицу result c 205-224
+
+        for(int i = 205; i < 225; i++){
+            resultsCrudRepository.UpdateResults_TypeRaceID_To1WhereIdParam(i, 1);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле type_race_name в Main вместо null All
+    @GetMapping("/UpdateResults_TypeRaceName_ToMainWhereIdParamAll")
+    public String UpdateResults_TypeRaceName_ToMainWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                String PermissionCodeCountry) {
+
+        //Записать дефолтное значение Main в колонку type_race_name
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_TypeRaceName_ToMainWhereIdParam(i, "Main");
+        }
+        return "answerAddGood_page";
+    }
+
     // Update
     @GetMapping("/UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots")
     public String UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(@RequestParam(required = false) Model model,

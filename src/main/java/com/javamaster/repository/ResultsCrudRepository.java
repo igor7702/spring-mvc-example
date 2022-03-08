@@ -265,6 +265,26 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             "")
     void UpdateResults_BestLap_ToFalseWhereIdParam(int Id, boolean bestLap);
 
+    // Update поле type_race_id в 1 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "type_race_id=:typeRaceId " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_TypeRaceID_To1WhereIdParam(int Id, int typeRaceId);
+
+    // Update поле type_race_name в Main вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "type_race_namе=:typeRaceName " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_TypeRaceName_ToMainWhereIdParam(int Id, String typeRaceName);
+
     // Delete
     @Modifying
     @Transactional

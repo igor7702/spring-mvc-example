@@ -46,6 +46,17 @@
 <!--            <artifactId>liquibase-core</artifactId>-->
 <!--        </dependency>-->
 
+<!--        Security JWT-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <dependency>
             <!-- jsoup HTML parser library @ https://jsoup.org/ -->
             <groupId>org.jsoup</groupId>
@@ -85,11 +96,6 @@
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>com.integralblue</groupId>-->
-<!--            <artifactId>log4jdbc-spring-boot-starter</artifactId>-->
 <!--        </dependency>-->
 
 <!--        <dependency>-->

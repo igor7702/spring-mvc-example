@@ -124,6 +124,20 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    // Update поле type_race_id в 1 вместо null
+    @Test
+    void UpdateResults_TypeRaceID_To1WhereIdParam() {
+        resultsCrudRepository.UpdateResults_TypeRaceID_To1WhereIdParam(207, 1);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле type_race_name в Main вместо null
+    @Test
+    void UpdateResults_TypeRaceName_ToMainWhereIdParam() {
+        resultsCrudRepository.UpdateResults_TypeRaceName_ToMainWhereIdParam(207, "Main");
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {
