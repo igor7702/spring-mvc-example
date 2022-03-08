@@ -16,7 +16,7 @@ public class UserJWTRepositoryTest {
     private UserEntityRepository userEntityRepository;
 
     @Test
-    void findAllCitiesDB() {
+    void findByLogin() {
         UserEntity userEntity = userEntityRepository.findByLogin("user1");
         System.out.println(userEntity.getLogin() + " " + userEntity.getPassword() + " " + userEntity.getRoleEntity());
         Assertions.assertEquals(1, 1);
