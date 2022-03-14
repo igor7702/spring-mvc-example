@@ -802,6 +802,111 @@ public class ResultController {
         return "answerAddGood_page";
     }
 
+    // Update поле team_id в 0 вместо null
+    @GetMapping("/UpdateResults_TeamID_To0WhereIdParam")
+    public String UpdateResults_TeamID_To0WhereIdParam(@RequestParam(required = false) Model model,
+                                                                String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_TeamID_To0WhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле team_name в "" вместо null
+    @GetMapping("/UpdateResults_teamName_ToEmptyStringWhereIdParam")
+    public String UpdateResults_teamName_ToEmptyStringWhereIdParam(@RequestParam(required = false) Model model,
+                                                       String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_teamName_ToEmptyStringWhereIdParam(208, "");
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле team_id в 0 вместо null All
+    @GetMapping("/UpdateResults_TeamID_To0WhereIdParamAll")
+    public String UpdateResults_TeamID_To0WhereIdParamAll(@RequestParam(required = false) Model model,
+                                                       String PermissionCodeCountry) {
+
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_TeamID_To0WhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле team_name в "" вместо null All
+    @GetMapping("/UpdateResults_teamName_ToEmptyStringWhereIdParamAll")
+    public String UpdateResults_teamName_ToEmptyStringWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                   String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_teamName_ToEmptyStringWhereIdParam(i, "");
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле laps в 0 вместо null
+    @GetMapping("/UpdateResults_laps_ToZerogWhereIdParamAll")
+    public String UpdateResults_laps_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                   String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_laps_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле laps в 0 вместо null
+    @GetMapping("/UpdateResults_laps_ToZerogWhereIdParam")
+    public String UpdateResults_laps_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                         String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_laps_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле start_grid в 0 вместо null
+    @GetMapping("/UpdateResults_startGrid_ToZerogWhereIdParam")
+    public String UpdateResults_startGrid_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                         String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_startGrid_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле end_grid в 0 вместо null
+    @GetMapping("/UpdateResults_endGrid_ToZerogWhereIdParam")
+    public String UpdateResults_endGrid_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                         String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_endGrid_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле start_grid в 0 вместо null All
+    @GetMapping("/UpdateResults_startGrid_ToZerogWhereIdParamAll")
+    public String UpdateResults_startGrid_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                              String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_startGrid_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле end_grid в 0 вместо null All
+    @GetMapping("/UpdateResults_endGrid_ToZerogWhereIdParamAll")
+    public String UpdateResults_endGrid_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                            String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_endGrid_ToZerogWhereIdParam(i, 0);
+        }
+        
+        return "answerAddGood_page";
+    }
     // Update
     @GetMapping("/UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots")
     public String UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(@RequestParam(required = false) Model model,

@@ -138,6 +138,41 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    // Update поле team_id в 0 вместо null
+    @Test
+    void UpdateResults_TeamID_To0WhereIdParam() {
+        resultsCrudRepository.UpdateResults_TeamID_To0WhereIdParam(205, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле team_name в "" вместо null
+    @Test
+    void UpdateResults_teamName_ToEmptyStringWhereIdParam() {
+        resultsCrudRepository.UpdateResults_teamName_ToEmptyStringWhereIdParam(207, "");
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле laps в 0 вместо null
+    @Test
+    void UpdateResults_laps_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_laps_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле start_grid в 0 вместо null
+    @Test
+    void UpdateResults_startGrid_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_startGrid_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле end_grid в 0 вместо null
+    @Test
+    void UpdateResults_endGrid_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_endGrid_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {

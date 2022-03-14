@@ -285,6 +285,76 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
             "")
     void UpdateResults_TypeRaceName_ToMainWhereIdParam(int Id, String typeRaceName);
 
+    // Update поле team_id в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "team_id=:teamId " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_TeamID_To0WhereIdParam(int Id, int teamId);
+
+    // Update поле team_name в "" вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "team_name=:teamName " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_teamName_ToEmptyStringWhereIdParam(int Id, String teamName);
+
+    // Update поле laps в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "laps=:laps " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_laps_ToZerogWhereIdParam(int Id, int laps);
+
+    // Update поле start_grid в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "start_grid=:startGrid " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_startGrid_ToZerogWhereIdParam(int Id, int startGrid);
+
+    // Update поле end_grid в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "end_grid=:endGrid " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_endGrid_ToZerogWhereIdParam(int Id, int endGrid);
+
+    // Update поле points_pilot в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "start_grid=:startGrid " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_pointsPilot_ToZerogWhereIdParam(int Id, int startGrid);
+
+    // Update поле points_pilot_all в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "end_grid=:endGrid " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_pointsPilotAll_ToZerogWhereIdParam(int Id, int endGrid);
+
     // Delete
     @Modifying
     @Transactional
