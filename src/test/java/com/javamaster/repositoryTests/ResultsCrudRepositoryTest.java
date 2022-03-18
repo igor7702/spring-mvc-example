@@ -173,6 +173,34 @@ public class ResultsCrudRepositoryTest {
         Assertions.assertEquals(1, 1);
     }
 
+    // Update поле points_pilot в 0 вместо null
+    @Test
+    void UpdateResults_pointsPilot_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_pointsPilot_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле points_pilot_all в 0 вместо null
+    @Test
+    void UpdateResults_pointsPilotAll_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_pointsPilotAll_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле points_team в 0 вместо null
+    @Test
+    void UpdateResults_pointsTeam_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_pointsTeam_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
+    // Update поле points_team_all в 0 вместо null
+    @Test
+    void UpdateResults_pointsTeamAll_ToZerogWhereIdParam() {
+        resultsCrudRepository.UpdateResults_pointsTeamAll_ToZerogWhereIdParam(207, 0);
+        Assertions.assertEquals(1, 1);
+    }
+
     // Delete
     @Test
     void deleteAllTable() {

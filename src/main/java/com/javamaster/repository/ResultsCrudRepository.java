@@ -339,21 +339,41 @@ public interface ResultsCrudRepository extends JpaRepository<Results, Long> {
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "update results set " +
-            "start_grid=:startGrid " +
+            "points_pilot=:pointsPilot " +
             "where " +
             "id = :Id" +
             "")
-    void UpdateResults_pointsPilot_ToZerogWhereIdParam(int Id, int startGrid);
+    void UpdateResults_pointsPilot_ToZerogWhereIdParam(int Id, int pointsPilot);
 
     // Update поле points_pilot_all в 0 вместо null
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "update results set " +
-            "end_grid=:endGrid " +
+            "points_pilot_all=:pointsPilotAll " +
             "where " +
             "id = :Id" +
             "")
-    void UpdateResults_pointsPilotAll_ToZerogWhereIdParam(int Id, int endGrid);
+    void UpdateResults_pointsPilotAll_ToZerogWhereIdParam(int Id, int pointsPilotAll);
+
+    // Update поле points_team в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "points_team=:pointsTeam " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_pointsTeam_ToZerogWhereIdParam(int Id, int pointsTeam);
+
+    // Update поле points_team_all в 0 вместо null
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update results set " +
+            "points_team_all=:pointsTeamAll " +
+            "where " +
+            "id = :Id" +
+            "")
+    void UpdateResults_pointsTeamAll_ToZerogWhereIdParam(int Id, int pointsTeamAll);
 
     // Delete
     @Modifying

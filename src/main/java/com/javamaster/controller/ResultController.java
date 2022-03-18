@@ -907,6 +907,91 @@ public class ResultController {
         
         return "answerAddGood_page";
     }
+
+    // Update поле points_pilot в 0 вместо null
+    @GetMapping("/UpdateResults_pointsPilot_ToZerogWhereIdParam")
+    public String UpdateResults_pointsPilot_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                              String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_pointsPilot_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_pilot_all в 0 вместо null
+    @GetMapping("/UpdateResults_pointsPilotAll_ToZerogWhereIdParam")
+    public String UpdateResults_pointsPilotAll_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                            String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_pointsPilotAll_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_pilot в 0 вместо null All
+    @GetMapping("/UpdateResults_pointsPilot_ToZerogWhereIdParamAll")
+    public String UpdateResults_pointsPilot_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_pointsPilot_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_pilot_all в 0 вместо null All
+    @GetMapping("/UpdateResults_pointsPilotAll_ToZerogWhereIdParamAll")
+    public String UpdateResults_pointsPilotAll_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                   String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_pointsPilotAll_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_team в 0 вместо null
+    @GetMapping("/UpdateResults_pointsTeam_ToZerogWhereIdParam")
+    public String UpdateResults_pointsTeam_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                                String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_pointsTeam_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_team_all в 0 вместо null
+    @GetMapping("/UpdateResults_pointsTeamAll_ToZerogWhereIdParam")
+    public String UpdateResults_pointsTeamAll_ToZerogWhereIdParam(@RequestParam(required = false) Model model,
+                                                                   String PermissionCodeCountry) {
+
+        resultsCrudRepository.UpdateResults_pointsTeamAll_ToZerogWhereIdParam(208, 0);
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_team в 0 вместо null ALL
+    @GetMapping("/UpdateResults_pointsTeam_ToZerogWhereIdParamAll")
+    public String UpdateResults_pointsTeam_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                               String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_pointsTeam_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
+    // Update поле points_team_all в 0 вместо null All
+    @GetMapping("/UpdateResults_pointsTeamAll_ToZerogWhereIdParamAll")
+    public String UpdateResults_pointsTeamAll_ToZerogWhereIdParamAll(@RequestParam(required = false) Model model,
+                                                                  String PermissionCodeCountry) {
+        for(int i = 205; i < 225; i++) {
+            resultsCrudRepository.UpdateResults_pointsTeamAll_ToZerogWhereIdParam(i, 0);
+        }
+
+        return "answerAddGood_page";
+    }
+
     // Update
     @GetMapping("/UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots")
     public String UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots(@RequestParam(required = false) Model model,
