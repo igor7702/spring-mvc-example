@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration page!!!</title>
+</head>
+<body>
+
+<h1>Welcome to the Admin page!</h1>
+
+<form action="/home" method="get">
+    <input name="login" placeholder="Please, paste login here" type="text">
+    <input type="submit" value="Navigate to the myhome page">
+</form>
+
+<form action="/race" method="get">
+    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
+    <input name="dataOfTheRace" placeholder="Input year of the race:" type="text">
+    <input type="submit" value="Navigate to the race page">
+</form>
+
+<p> </p>
+CRUD jdbc and Spring Data operations:
+<p> </p>
+
+<form action="/getHbRace" method="get">
+    <input type="submit" value="Get the information about races (Spring Data)!">
+</form>
+
+<!--<form action="/addRace" method="get">-->
+<!--    <input type="submit" value="Add new race information JDBC!">-->
+<!--</form>-->
+
+<form action="/addHbRace" method="get">
+    <input type="submit" value="Add new race information SpringData!">
+</form>
+
+<form action="/changeRace" method="get">
+    <input name="codeToChangeTheRaceToDB" placeholder="Input permission code:" type="text">
+    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
+    <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
+    <input type="submit" value="Change the race information!">
+</form>
+
+<form action="/updateRaceHb" method="get">
+    <input name="codeToChangeTheRaceToDB" placeholder="Input permission code:" type="text">
+    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
+    <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
+    <input type="submit" value="Change the race information (Spring Data)!">
+</form>
+
+<!--<form action="/deleteRace" method="get">-->
+<!--    <input name="codeToChangeTheRaceInDB" placeholder="Input permission code:" type="text">-->
+<!--    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">-->
+<!--    <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">-->
+<!--    <input type="submit" value="Delete F1 race from DB (JDBC)">-->
+<!--</form>-->
+
+<form action="/deleteHbRace" method="get">
+    <input name="codeToChangeTheRaceInDB" placeholder="Input permission code:" type="text">
+    <input name="id" placeholder="Input the id of the race:" type="text">
+    <input name="numberOfTheRaceWeek" placeholder="Input number of the race week:" type="text">
+    <input name="yearOfTheRace" placeholder="Input year of the race:" type="text">
+    <input type="submit" value="Delete F1 race from DB (Spring Data)">
+</form>
+
+<p> </p>
+CRUD Hibernate/Spring data operations (Native queries):
+<p> </p>
+
+<form action="/addAddressUser" method="get">
+    <input type="submit" value="Add new information about address and user!">
+</form>
+
+<form action="/addCountry" method="get">
+    <input name="PermissionCodeCountry" placeholder="Input a permission code:" type="text">
+    <input name="codeCountry" placeholder="Input a code of the Country:" type="text">
+    <input name="nameCountry" placeholder="Input a name of the Country:" type="text">
+    <input type="submit" value="Add a name and a code of the country!">
+</form>
+
+<form action="/changeCountry" method="get">
+    <input name="codeToChangeTheCountryInDB" placeholder="Input a permission code:" type="text">
+    <input name="codeCountry" placeholder="Input a code of the country:" type="text">
+    <input type="submit" value="Change the country!">
+</form>
+
+<form action="/deleteCountry" method="get">
+    <input name="PermissionCodeCountry" placeholder="Input a permission code:" type="text">
+    <input name="codeCountry" placeholder="Input a code of the Country:" type="text">
+    <input type="submit" value="Delete a name and a code of the country!">
+</form>
+
+<p> </p>
+CRUD Hibernate/Spring data operations (JPA):
+<p> </p>
+
+<form action="/createCity" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input name="nameCity" placeholder="Input a name of the City:" type="text">
+    <input type="submit" value="Add the city!">
+</form>
+
+<form action="/getCity" method="get">
+    <input type="submit" value="Get all cities from DB!">
+</form>
+
+<form action="/changeCity" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input name="codeCity" placeholder="Input an Id of the City:" type="number">
+    <input name="nameCity" placeholder="Input a name of the City:" type="text">
+    <input type="submit" value="Change the city!">
+</form>
+
+<form action="/deleteCity" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input name="idCity" placeholder="Input a id of the City:" type="number">
+    <input type="submit" value="Delete a of the city!">
+</form>
+
+<form action="/workWithTeams" method="get">
+    <input type="submit" value="Work with tables Teams and Pilots!">
+</form>
+
+<p> </p>
+XML Parsing:
+<form action="/xmlParsing" method="get">
+    <input type="submit" value="Work with XMLParsing!">
+</form>
+
+<p> </p>
+Excel Parsing:
+<form action="/ExcellReadResultsPasing" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input name="numberStartRow" placeholder="Input a number of the start row:" type="number">
+    <input name="numberEndRow" placeholder="Input a number of the end row:" type="number">
+    <input type="submit" value="Parse Excell file!">
+</form>
+
+<p> </p>
+<!--CSV Parsing:-->
+<!--<form action="/CSVReadPilotsPasing" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input name="numberStartRow" placeholder="Input a number of the start row:" type="number">-->
+<!--    <input name="numberEndRow" placeholder="Input a number of the end row:" type="number">-->
+<!--    <input type="submit" value="Parse CSV file!">-->
+<!--</form>-->
+
+<!--Table Pilots-->
+<!--<form action="/UpdatePilotNameRus" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdatePilotNameRus from CSV file!">-->
+<!--</form>-->
+
+Table Results
+RaceName
+<!--<form action="/CreateResultsRaceName" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceName from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsAllRaceName" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsAllRaceName from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsIdRace" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsIdRace from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsAllIdRace" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsAllIdRace from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsRaceNameAndSimpleIdRace" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceNameAndSimpleIdRace from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsRaceNameAndSimpleIdRaceAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceNameAndSimpleIdRaceAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsRaceNameAndRealIdRace" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceNameAndRealIdRace from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsRaceNameAndRealIdRaceAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceNameAndRealIdRaceAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsRaceNameAndRealIdRacePilotNameAndPilotId" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsRaceNameAndRealIdRacePilotNameAndPilotId from XLS_DB file!">-->
+<!--</form>-->
+
+pilot_id, pilot_name
+<!--<form action="/CreateResultsPilotName" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsPilotName from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsPilotNameFromTablePilots" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsPilotNameFromTablePilots from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsPilotNameAndPilotIdFromTablePilots" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsPilotNameAndPilotIdFromTablePilots from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsPilotNameAndPilotIdFromTablePilotsAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsPilotNameAndPilotIdFromTablePilotsAll from XLS_DB file!">-->
+<!--</form>-->
+
+Races and Pilot
+<!--<form action="/CreateResultRacesAndPilots" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultRacesAndPilots from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultRacesAndPilotsAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultRacesAndPilotsAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/CreateResultsPilotNameAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsPilotName from XLS_DB file!">-->
+<!--</form>-->
+
+<!--Type Race Id and Type Race name-->
+<!--<form action="/CreateResultsTypeRaceIdAndTypeRaceName" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="CreateResultsTypeRaceIdAndTypeRaceName from XLS_DB file!">-->
+<!--</form>-->
+
+<!--Bestlap boolen-->
+<!--<form action="/UpdateBestLapToFalseDefault" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateBestLapToFalseDefault from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateBestLapToFalseDefaultAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateBestLapToFalseDefaultAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--type_race_id type_race_name-->
+<!--<form action="/UpdateResults_TypeRaceID_To1WhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TypeRaceID_To1WhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_TypeRaceName_ToMainWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TypeRaceName_ToMainWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_TypeRaceID_To1WhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TypeRaceID_To1WhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_TypeRaceName_ToMainWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TypeRaceName_ToMainWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+team_id
+<!--<form action="/UpdateResults_TeamID_To0WhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TeamID_To0WhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_teamName_ToEmptyStringWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_teamName_ToEmptyStringWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_TeamID_To0WhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_TeamID_To0WhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_teamName_ToEmptyStringWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_teamName_ToEmptyStringWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--laps-->
+<!--<form action="/UpdateResults_laps_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_laps_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_laps_ToZerogWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_laps_ToZerogWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+grid
+<!--<form action="/UpdateResults_startGrid_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_startGrid_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_endGrid_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_endGrid_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_startGrid_ToZerogWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_startGrid_ToZerogWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_endGrid_ToZerogWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_endGrid_ToZerogWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--points_pilot-->
+<!--<form action="/UpdateResults_pointsPilot_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsPilot_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_pointsPilotAll_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsPilotAll_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_pointsPilot_ToZerogWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsPilot_ToZerogWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_pointsPilotAll_ToZerogWhereIdParamAll" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsPilotAll_ToZerogWhereIdParamAll from XLS_DB file!">-->
+<!--</form>-->
+
+points_team
+<!--<form action="/UpdateResults_pointsTeam_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsTeam_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/UpdateResults_pointsTeamAll_ToZerogWhereIdParam" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_pointsTeamAll_ToZerogWhereIdParam from XLS_DB file!">-->
+<!--</form>-->
+
+<form action="/UpdateResults_pointsTeam_ToZerogWhereIdParamAll" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input type="submit" value="UpdateResults_pointsTeam_ToZerogWhereIdParamAll from XLS_DB file!">
+</form>
+
+<form action="/UpdateResults_pointsTeamAll_ToZerogWhereIdParamAll" method="get">
+    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">
+    <input type="submit" value="UpdateResults_pointsTeamAll_ToZerogWhereIdParamAll from XLS_DB file!">
+</form>
+
+<!--Update Result (Race, Pilot, TypeRace)-->
+<!--<form action="/UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots" method="get">-->
+<!--    <input name="PermissionCodeCity" placeholder="Input a permission code:" type="text">-->
+<!--    <input type="submit" value="UpdateResults_IdTapeRace_NameTypeRace_By_RaceAndPilots from XLS_DB file!">-->
+<!--</form>-->
+
+<!--<form action="/operationReviews" method="get">-->
+<!--    <input type="submit" value="Run operation Reviews!">-->
+<!--</form>-->
+
+<!--
+<form action="/tyres" method="get">
+    <input name="login" placeholder="This is information about tires" type="text">
+    <input type="submit" value="Navigate to the tires page">
+</form>
+-->
+
+<!--<p> </p>-->
+<!--Orders:-->
+
+<!--<p> </p>-->
+<!--<img th:src="@{/images/test.jpg}" alt="">-->
+
+<!--<p> </p>-->
+<!--<form action="/orders" method="get">-->
+<!--    <input type="submit" value="Start orders!">-->
+<!--</form>-->
+
+</body>
+</html>

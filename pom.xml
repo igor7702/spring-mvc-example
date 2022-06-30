@@ -11,6 +11,9 @@
     <groupId>com.java-master</groupId>
     <artifactId>spring-mvc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+<!--    jar+-->
+    <packaging>jar</packaging>
+<!--    jar- -->
     <name>spring-mvc</name>
     <description>Spring MVC project example</description>
 
@@ -120,6 +123,14 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <!--    +-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--    - -->
+
     </dependencies>
 
     <build>
